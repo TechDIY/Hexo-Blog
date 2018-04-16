@@ -111,10 +111,9 @@ git push -u origin master
 ![newbranch](https://techdiy.github.io/Hexo-Blog/img/HexoBlog/newbranch.png)
 之後上傳原始檔的話就切換到剛創建的branch
 ```yml
-git checkout 名稱
-git add —all 
-git commit -m “你要記錄的文字" 
-git push -u origin master 
+git add . 
+git commit -m "你要記錄的文字" 
+git push -u origin hexo 
 ```
 ## 發布靜態檔案
 Hexo 提供了快速方便的一鍵佈署功能，讓您只需一個指令就能將網站佈署到伺服器上 
