@@ -6,5 +6,7 @@ comments: true
 header-img: "img/header_img/about.jpg"
 ---
 
-> 光有好奇心而不去實踐，等於自願放棄成功機會
-> 別為自己畫地自限，Just Do It！！
+喜歡土炮科技的科技宅
+
+> 光有想法而不去實踐，等於自願放棄成功機會
+> Don't limit yourself，Just Do It！！

@@ -3,7 +3,7 @@ title: "利用Hexo輕鬆在GitHub上打造個人部落格"
 catalog: true
 date: 2018-04-12 16:50:24
 subtitle: "快速、簡單且強大的網誌框架."
-header-img:  "/img/header_img/iot.jpg"
+header-img:  "header.png"
 tags:
 - Hexo
 - GitHub
