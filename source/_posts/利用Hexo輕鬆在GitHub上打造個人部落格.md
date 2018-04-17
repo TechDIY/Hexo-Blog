@@ -36,7 +36,7 @@ Node.js介紹可以看[這裡](https://zh.wikipedia.org/wiki/Node.js)，為什�
 首先[Node.js](https://nodejs.org/en/)官網下載安裝，一路下一步即可安裝完成。
 
 接下來要檢查是否安裝，打開終端機輸入
-```bash
+```yml
 node -v
 ```
 如回覆類似以下，及代表安裝完成
