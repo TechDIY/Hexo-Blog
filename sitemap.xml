@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>http://techdiy.tk/</loc>
+  <lastmod>2018-04-26T03:05:07+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://techdiy.tk/about/</loc>
+  <lastmod>2018-04-26T03:05:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://techdiy.tk/archive/</loc>
+  <lastmod>2018-04-26T03:05:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://techdiy.tk/tags/</loc>
+  <lastmod>2018-04-26T03:05:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://techdiy.tk/2018/04/26/%E5%A6%82%E4%BD%95%E5%9C%A8Dialogflow%E6%89%93%E9%80%A0%E5%B0%88%E5%B1%ACGoogle%20Assistant%20App(%E4%B8%8B)/</loc>
+  <lastmod>2018-04-26T03:05:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://techdiy.tk/2018/04/25/%E5%A6%82%E4%BD%95%E5%9C%A8Dialogflow%E6%89%93%E9%80%A0%E5%B0%88%E5%B1%ACGoogle%20Assistant%20App/</loc>
+  <lastmod>2018-04-26T03:05:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://techdiy.tk/2018/04/24/%E7%B0%A1%E5%96%AE%E8%88%87Firebase%E5%90%8C%E6%AD%A5%EF%BC%8C%E6%8E%A7%E5%88%B6%E6%A8%B9%E8%8E%93%E6%B4%BEGPIO/</loc>
+  <lastmod>2018-04-26T03:05:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://techdiy.tk/2018/04/21/%E6%87%89%E7%94%A8%20Google%20Assistant%20%E6%89%93%E9%80%A0%E6%99%BA%E6%85%A7%E5%AE%B6%E5%B1%85/</loc>
+  <lastmod>2018-04-26T03:05:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://techdiy.tk/2018/04/17/%E7%99%BC%E5%B8%83%E6%96%87%E7%AB%A0%E5%8F%8ATheme%E4%BF%AE%E6%94%B9/</loc>
+  <lastmod>2018-04-26T03:05:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://techdiy.tk/archives/2/</loc>
+  <lastmod>2018-04-26T03:05:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://techdiy.tk/2018/04/12/%E5%88%A9%E7%94%A8Hexo%E8%BC%95%E9%AC%86%E5%9C%A8GitHub%E4%B8%8A%E6%89%93%E9%80%A0%E5%80%8B%E4%BA%BA%E9%83%A8%E8%90%BD%E6%A0%BC/</loc>
+  <lastmod>2018-04-26T03:05:07+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
