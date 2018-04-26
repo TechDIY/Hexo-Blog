@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          發布文章及Theme修改 - TechDIY | 動手玩科技
+          應用 Google Assistant 打造智慧家居 - TechDIY | 動手玩科技
         
     </title>
 
-    <link rel="canonical" href="http://techdiy.tk/2018/04/17/發布文章及Theme修改/">
+    <link rel="canonical" href="http://techdiy.tk/2018/04/21/應用 Google Assistant 打造智慧家居/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -70,8 +70,8 @@
     header.intro-header{
         
             
-                background-image: url('header.png')
-             
+                background-image: url('/img/header_img/post_header.png')
+              
             /*post*/
         
     }
@@ -88,16 +88,22 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
+                              <a class="tag" href="/tags/#Google Assistant" title="Google Assistant">Google Assistant</a>
                             
-                              <a class="tag" href="/tags/#GitHub" title="GitHub">GitHub</a>
+                              <a class="tag" href="/tags/#Firebase" title="Firebase">Firebase</a>
+                            
+                              <a class="tag" href="/tags/#Dialogflow" title="Dialogflow">Dialogflow</a>
+                            
+                              <a class="tag" href="/tags/#Raspberry Pi" title="Raspberry Pi">Raspberry Pi</a>
+                            
+                              <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
                             
                         </div>
-                        <h1>發布文章及Theme修改</h1>
-                        <h2 class="subheading">快速、簡單且強大的網誌框架.</h2>
+                        <h1>應用 Google Assistant 打造智慧家居</h1>
+                        <h2 class="subheading">玩轉語音控制，智慧您的家園.</h2>
                         <span class="meta">
                             Posted by Aaron Chou on
-                            2018-04-17
+                            2018-04-21
                         </span>
                     </div>
                 
@@ -214,24 +220,36 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="發布第一篇文章"><a href="#發布第一篇文章" class="headerlink" title="發布第一篇文章"></a>發布第一篇文章</h1><hr>
-<p>繼上一篇<a href="http://techdiy.tk/2018/04/12/%E5%88%A9%E7%94%A8Hexo%E8%BC%95%E9%AC%86%E5%9C%A8GitHub%E4%B8%8A%E6%89%93%E9%80%A0%E5%80%8B%E4%BA%BA%E9%83%A8%E8%90%BD%E6%A0%BC/" target="_blank" rel="noopener">打照個人部落格</a>成功架設了自己的部落格，是該來發布第一篇文章，打開本地端資料夾，依照路徑新增一個檔案，檔名為<code>.md</code></p>
+                <h1 id="Google-Assistant"><a href="#Google-Assistant" class="headerlink" title="Google Assistant"></a>Google Assistant</h1><hr>
+<p>2016 年 Google I/O 大會，首次推出Google Assistant ，Google Assistant 通常被認為是 Google Now 的升級或延伸版，但現今應用範圍越來越廣泛，除了可以安排預定事項外，現在還可以控制家中的設備，有種邁向真正個人小管家的概念。除此之外Google Assistant 能見度高，從Android phone、Android Wear、Android TV上都能見到，甚或是在iPhone上。<br>Google 也推出了 Google Home，讓使用者可以無需打開App就能透過語音來直接操作，相較於其他廠牌像是Amazon Alexa、Apple HomePod 能否利用廣泛的市佔率拔得頭籌，值得期待。</p>
+<h2 id="智慧家電"><a href="#智慧家電" class="headerlink" title="智慧家電"></a>智慧家電</h2><p>隨著物聯網的口號響起，『智慧家電』這塊大餅，誰也不能錯過，但如何能從眾家脫穎而出，值得去深思。個人從大學及碩論就開始往物聯網方向前進，目前也從事相關性質的工作，一開始認為寫個App及相關控制就能觸及到物聯網的真諦。站在消費者立場，家中如有5種不同牌子的產品，每控制一種就要打開特定App話，那效果還真不及遙控器來的方便。除非把品牌變成一種信仰，像是<a href="https://home.mi.com/index.html" target="_blank" rel="noopener">米家</a>或Apple，有廣大的消費族群，消費者也只需下載一個App就能完成所有事情的話，那可能還有點機會，我想這也就是為什麼智慧家電發展會那麼遲緩的其中一個原因。</p>
+<h2 id="語音控制"><a href="#語音控制" class="headerlink" title="語音控制"></a>語音控制</h2><p>我一直對於台灣智慧家電發展打了一個問號，直到我看到了像是Google Assistant、Amazon Alexa、Homekit之類的出場，才發現了一點曙光。不需被合併，只需要相關串接就能達到整合，重點是操作方便，不用花費時間在開啟App，透過喚醒語音裝置就能達到控制。早期官方提供的資源並不多，隨著資源的釋出，讓更多開發者能夠自由的發揮，進而帶動語音控制的發展，連Homekit都能用樹莓派，透過橋接方式控制家電產品，可以說是為智慧家電點亮了一盞燈。</p>
+<h1 id="架構圖"><a href="#架構圖" class="headerlink" title="架構圖"></a>架構圖</h1><p>前面廢話那麼多，終於要來講本篇的目的及架構了，不曉得是否有人跟我一樣，晚上關燈上床總是要摸黑，睡到一半覺得電風扇很冷，想要關掉卻很懶得爬起來？那這篇就是救星，不過有前提，前提是需要一點點基礎，我會以盡量簡單的方式指引，如果有不懂的歡迎留言！</p>
+<p>主要結構為利用<a href="https://dialogflow.com/" target="_blank" rel="noopener">Dialogflow</a>為<a href="https://assistant.google.com/#?modal_active=none" target="_blank" rel="noopener">Google Assistant</a>寫一個應用，並在<a href="https://firebase.google.com/" target="_blank" rel="noopener">Firebase</a>紀錄事件，順便將語音控制的資訊儲存在Firebase裡。再用<a href="https://www.raspberrypi.com.tw/" target="_blank" rel="noopener">樹莓派</a>連上Firebase，當Firebase狀態更新時，自動推送到樹莓派做<a href="https://zh.wikipedia.org/wiki/GPIO" target="_blank" rel="noopener">GPIO</a>更新。<br><img src="Structure.png" alt="Structure"><br>我主要會切為三個部分，先從簡單的GPIO控制開始，再來加入Firebase應用，最後才是Dialogflow的撰寫。首先我們需要安裝環境Node.js，有安裝的可以<a href="#安裝onoff">跳到</a>。</p>
+<h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><p>Node.js介紹可以看<a href="https://zh.wikipedia.org/wiki/Node.js" target="_blank" rel="noopener">這裡</a>，為什麼要安裝Node.js呢？因為我們是寫JavaScript而Node.js內有環境可以執行我們的代碼。<br>首先<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a>官網下載安裝，一路下一步即可安裝完成。</p>
+<p>接下來要檢查是否安裝，打開終端機輸入<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">node</span> <span class="bullet">-v</span></span><br></pre></td></tr></table></figure></p>
+<p>如回覆類似以下，及代表安裝完成</p>
 <blockquote>
-<p>資料夾 → source→ _posts→ 新增檔案.md </p>
+<p>v9.10.1</p>
 </blockquote>
-<p>檔頭格式依照所下載的主題提供的方法做編寫，例如我的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">title: <span class="string">"發布文章及Theme修改"</span></span><br><span class="line">catalog: <span class="literal">true</span></span><br><span class="line">date: 2018-04-17 13:10:24</span><br><span class="line">subtitle: <span class="string">"快速、簡單且強大的網誌框架."</span></span><br><span class="line">header-img:  <span class="string">"header.png"</span></span><br><span class="line">tags:</span><br><span class="line">- Hexo</span><br><span class="line">- GitHub</span><br><span class="line">catagories:</span><br><span class="line">- 教學</span><br></pre></td></tr></table></figure></p>
-<p>至於文章內容的話，在作者在Git上應該也會說明，如果沒有的話，其實也沒關係，因為Hexo 是使用<a href="https://wastemobile.gitbooks.io/gitbook-chinese/content/format/markdown.html" target="_blank" rel="noopener">Markdown 標記語法</a>，只要遵循語法寫就好了。</p>
-<p>寫完文章後先在本地端測試<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">hexo</span> <span class="string">g</span>              <span class="string">//生成靜態文件</span></span><br><span class="line"><span class="string">hexo</span> <span class="string">s</span> <span class="bullet">-p</span> <span class="number">8080</span>     <span class="string">//開啟8080</span> <span class="string">port</span></span><br></pre></td></tr></table></figure></p>
-<p>確定沒問題後，再將靜態文件發布在GitHub，別忘了將原始文件檔也上傳到GitHub的分支上，避免換環境之後，想修改內容卻沒檔案。<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">hexo</span> <span class="bullet">-d</span>               <span class="string">//上傳靜態文件於GitHub</span></span><br><span class="line"><span class="string">git</span> <span class="string">add.</span>              <span class="string">//添加文檔夾下的所有文檔</span></span><br><span class="line"><span class="string">git</span> <span class="string">commit</span> <span class="bullet">-m</span> <span class="string">"New"</span>   <span class="string">//引號內為此次提交説明</span></span><br><span class="line"><span class="string">git</span> <span class="string">push</span> <span class="bullet">-u</span> <span class="string">origin</span> <span class="string">hexo</span> <span class="string">//</span> <span class="string">推送到Github，hexo為我所建的分支</span></span><br></pre></td></tr></table></figure></p>
-<p>完成！打開網頁去看看自己發的第一篇文章吧！</p>
-<h1 id="修改Theme"><a href="#修改Theme" class="headerlink" title="修改Theme"></a>修改Theme</h1><hr>
-<p>這部需要有點基礎，不過透過了解Hexo的基礎結構後，會比較好下手修改。<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">|-- _config.yml</span></span><br><span class="line"><span class="string">|-- public</span></span><br><span class="line"><span class="string">|-- source</span></span><br><span class="line">   <span class="string">|-- _posts</span></span><br><span class="line"><span class="string">|-- themes</span></span><br><span class="line">   <span class="string">|-- layout</span></span><br><span class="line">   <span class="string">|-- source</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h2><p>很重要的一個檔案，這是配置整個部落格資訊的檔案，例如部落格名稱、作者、主題…等。</p>
-<h2 id="public"><a href="#public" class="headerlink" title="public"></a>public</h2><p>生成的靜態網頁存放地方，不會對這個地方做修改，大略知道就好了。</p>
-<h2 id="source"><a href="#source" class="headerlink" title="source"></a>source</h2><p>這目錄很重要，發布的文章需要放在 _posts目錄下，如果看不懂Code，只要知道在_posts底下新增<code>.md</code>就可以發文了。其他可能還會有一些像選單的資料夾，只要找到相對應的名稱，就可以做資訊上的修改。</p>
-<h2 id="themes"><a href="#themes" class="headerlink" title="themes"></a>themes</h2><p>主題資料夾，存放載下來的主題，並透過修改_config.yml裡的theme<a href="http://techdiy.tk/2018/04/12/%E5%88%A9%E7%94%A8Hexo%E8%BC%95%E9%AC%86%E5%9C%A8GitHub%E4%B8%8A%E6%89%93%E9%80%A0%E5%80%8B%E4%BA%BA%E9%83%A8%E8%90%BD%E6%A0%BC/#%E6%9B%B4%E6%8F%9BTheme" target="_blank" rel="noopener">更換主題</a>。</p>
-<h3 id="layout"><a href="#layout" class="headerlink" title="layout"></a>layout</h3><p>佈局資料夾。用於放置主題的模板檔案，決定了網站內容的呈現方式。<br>如果要修改Theme的模板就要在此資料夾下手。</p>
-<h3 id="source-1"><a href="#source-1" class="headerlink" title="source"></a>source</h3><p>原始檔案資料夾，此資料夾是儲放模板以外的檔案，例如CSS、JavaScript檔案等，經過編譯後會自動存放在public資料夾</p>
+<h3 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h3><p>npm 全名為 Node Package Manager，是 Node.js 的套件（package）管理工具，在安裝Node.js時會一起幫我們安裝npm套件管理工具，我們只需要做檢查<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">npm</span> <span class="bullet">-v</span></span><br></pre></td></tr></table></figure></p>
+<p>若 npm 正確安裝，將會看到類似回覆</p>
+<blockquote>
+<p>5.6.0</p>
+</blockquote>
+<h3 id="安裝onoff"><a href="#安裝onoff" class="headerlink" title="安裝onoff"></a>安裝onoff</h3><p>樹莓派GPIO，採用<a href="https://www.npmjs.com/package/onoff" target="_blank" rel="noopener">onoff</a><br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">npm</span> <span class="string">install</span> <span class="string">onoff</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="GPIO控制"><a href="#GPIO控制" class="headerlink" title="GPIO控制"></a>GPIO控制</h2><p>接一顆220Ω的電阻來限制電流，輸出腳位依照個人喜好更換，我有附上Raspberry Pi三代的接腳圖，照排列找相對應的GPIO。我是接第12根接腳，而第12接腳是GIPIO 18，所以程式碼就打18是輸出，並複製程式碼另存為<code>.js</code>檔案。<br><img src="Wiring.png" alt="Wiring"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gpio = <span class="built_in">require</span>(<span class="string">"onoff"</span>).Gpio;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> LEDR = <span class="keyword">new</span> gpio(<span class="number">18</span>, <span class="string">'out'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">blinkLED</span>(<span class="params">State</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (State === <span class="string">'on'</span>) &#123;</span><br><span class="line">    LED.writeSync(<span class="number">0</span>);</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    LED.writeSync(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">blinkLED(on);</span><br></pre></td></tr></table></figure>
+<p>打開終端機<br>Mac</p>
+<blockquote>
+<p>⌘+ 空白鍵<br>輸入terminal</p>
+</blockquote>
+<p>Windows</p>
+<blockquote>
+<p>Windows + R<br>輸入cmd</p>
+</blockquote>
+<p>利用Node.js執行程式。<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">node</span> <span class="string">xxx.js</span> <span class="string">//xxx為路徑＋檔案名稱</span></span><br></pre></td></tr></table></figure></p>
+<p>依照上面步驟應該可以成功的點亮LED囉。下一篇會進行樹莓派連上Firebase並同步的教學。</p>
 
                 
 
@@ -240,12 +258,12 @@
                 <ul class="pager">
                     
                         <li class="next">
-                            <a href="/2018/04/21/應用 Google Assistant 打造智慧家居/" data-toggle="tooltip" data-placement="top" title="應用 Google Assistant 打造智慧家居">Next&rarr;</a>
+                            <a href="/2018/04/24/簡單與Firebase同步，控制樹莓派GPIO/" data-toggle="tooltip" data-placement="top" title="簡單與Firebase同步，控制樹莓派GPIO">Next&rarr;</a>
                         </li>
                     
                     
                         <li class="previous">
-                            <a href="/2018/04/12/利用Hexo輕鬆在GitHub上打造個人部落格/" data-toggle="tooltip" data-placement="top" title="利用Hexo輕鬆在GitHub上打造個人部落格">&larr; Previous</a>
+                            <a href="/2018/04/17/發布文章及Theme修改/" data-toggle="tooltip" data-placement="top" title="發布文章及Theme修改">&larr; Previous</a>
                         </li>
                     
                 </ul>
@@ -275,7 +293,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#發布第一篇文章"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">發布第一篇文章</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#修改Theme"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">修改Theme</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#config-yml"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">_config.yml</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#public"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">public</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#source"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">source</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#themes"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">themes</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#layout"><span class="toc-nav-number">2.4.1.</span> <span class="toc-nav-text">layout</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#source-1"><span class="toc-nav-number">2.4.2.</span> <span class="toc-nav-text">source</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Google-Assistant"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Google Assistant</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#智慧家電"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">智慧家電</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#語音控制"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">語音控制</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#架構圖"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">架構圖</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Node-js"><span class="toc-nav-number">2.0.1.</span> <span class="toc-nav-text">Node.js</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#npm"><span class="toc-nav-number">2.0.2.</span> <span class="toc-nav-text">npm</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#安裝onoff"><span class="toc-nav-number">2.0.3.</span> <span class="toc-nav-text">安裝onoff</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#GPIO控制"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">GPIO控制</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -292,8 +310,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "chouhou";
-    var disqus_identifier = "http://techdiy.tk/2018/04/17/發布文章及Theme修改/";
-    var disqus_url = "http://techdiy.tk/2018/04/17/發布文章及Theme修改/";
+    var disqus_identifier = "http://techdiy.tk/2018/04/21/應用 Google Assistant 打造智慧家居/";
+    var disqus_url = "http://techdiy.tk/2018/04/21/應用 Google Assistant 打造智慧家居/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

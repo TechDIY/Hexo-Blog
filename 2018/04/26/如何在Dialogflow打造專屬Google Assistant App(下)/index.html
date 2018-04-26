@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          發布文章及Theme修改 - TechDIY | 動手玩科技
+          如何在Dialogflow打造專屬Google Assistant App(下) - TechDIY | 動手玩科技
         
     </title>
 
-    <link rel="canonical" href="http://techdiy.tk/2018/04/17/發布文章及Theme修改/">
+    <link rel="canonical" href="http://techdiy.tk/2018/04/26/如何在Dialogflow打造專屬Google Assistant App(下)/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -70,8 +70,8 @@
     header.intro-header{
         
             
-                background-image: url('header.png')
-             
+                background-image: url('/img/header_img/post_header.png')
+              
             /*post*/
         
     }
@@ -88,16 +88,22 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
+                              <a class="tag" href="/tags/#Google Assistant" title="Google Assistant">Google Assistant</a>
                             
-                              <a class="tag" href="/tags/#GitHub" title="GitHub">GitHub</a>
+                              <a class="tag" href="/tags/#Firebase" title="Firebase">Firebase</a>
+                            
+                              <a class="tag" href="/tags/#Dialogflow" title="Dialogflow">Dialogflow</a>
+                            
+                              <a class="tag" href="/tags/#Raspberry Pi" title="Raspberry Pi">Raspberry Pi</a>
+                            
+                              <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
                             
                         </div>
-                        <h1>發布文章及Theme修改</h1>
-                        <h2 class="subheading">快速、簡單且強大的網誌框架.</h2>
+                        <h1>如何在Dialogflow打造專屬Google Assistant App(下)</h1>
+                        <h2 class="subheading">玩轉語音控制，智慧您的家園.</h2>
                         <span class="meta">
                             Posted by Aaron Chou on
-                            2018-04-17
+                            2018-04-26
                         </span>
                     </div>
                 
@@ -214,24 +220,22 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="發布第一篇文章"><a href="#發布第一篇文章" class="headerlink" title="發布第一篇文章"></a>發布第一篇文章</h1><hr>
-<p>繼上一篇<a href="http://techdiy.tk/2018/04/12/%E5%88%A9%E7%94%A8Hexo%E8%BC%95%E9%AC%86%E5%9C%A8GitHub%E4%B8%8A%E6%89%93%E9%80%A0%E5%80%8B%E4%BA%BA%E9%83%A8%E8%90%BD%E6%A0%BC/" target="_blank" rel="noopener">打照個人部落格</a>成功架設了自己的部落格，是該來發布第一篇文章，打開本地端資料夾，依照路徑新增一個檔案，檔名為<code>.md</code></p>
-<blockquote>
-<p>資料夾 → source→ _posts→ 新增檔案.md </p>
-</blockquote>
-<p>檔頭格式依照所下載的主題提供的方法做編寫，例如我的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">title: <span class="string">"發布文章及Theme修改"</span></span><br><span class="line">catalog: <span class="literal">true</span></span><br><span class="line">date: 2018-04-17 13:10:24</span><br><span class="line">subtitle: <span class="string">"快速、簡單且強大的網誌框架."</span></span><br><span class="line">header-img:  <span class="string">"header.png"</span></span><br><span class="line">tags:</span><br><span class="line">- Hexo</span><br><span class="line">- GitHub</span><br><span class="line">catagories:</span><br><span class="line">- 教學</span><br></pre></td></tr></table></figure></p>
-<p>至於文章內容的話，在作者在Git上應該也會說明，如果沒有的話，其實也沒關係，因為Hexo 是使用<a href="https://wastemobile.gitbooks.io/gitbook-chinese/content/format/markdown.html" target="_blank" rel="noopener">Markdown 標記語法</a>，只要遵循語法寫就好了。</p>
-<p>寫完文章後先在本地端測試<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">hexo</span> <span class="string">g</span>              <span class="string">//生成靜態文件</span></span><br><span class="line"><span class="string">hexo</span> <span class="string">s</span> <span class="bullet">-p</span> <span class="number">8080</span>     <span class="string">//開啟8080</span> <span class="string">port</span></span><br></pre></td></tr></table></figure></p>
-<p>確定沒問題後，再將靜態文件發布在GitHub，別忘了將原始文件檔也上傳到GitHub的分支上，避免換環境之後，想修改內容卻沒檔案。<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">hexo</span> <span class="bullet">-d</span>               <span class="string">//上傳靜態文件於GitHub</span></span><br><span class="line"><span class="string">git</span> <span class="string">add.</span>              <span class="string">//添加文檔夾下的所有文檔</span></span><br><span class="line"><span class="string">git</span> <span class="string">commit</span> <span class="bullet">-m</span> <span class="string">"New"</span>   <span class="string">//引號內為此次提交説明</span></span><br><span class="line"><span class="string">git</span> <span class="string">push</span> <span class="bullet">-u</span> <span class="string">origin</span> <span class="string">hexo</span> <span class="string">//</span> <span class="string">推送到Github，hexo為我所建的分支</span></span><br></pre></td></tr></table></figure></p>
-<p>完成！打開網頁去看看自己發的第一篇文章吧！</p>
-<h1 id="修改Theme"><a href="#修改Theme" class="headerlink" title="修改Theme"></a>修改Theme</h1><hr>
-<p>這部需要有點基礎，不過透過了解Hexo的基礎結構後，會比較好下手修改。<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">|-- _config.yml</span></span><br><span class="line"><span class="string">|-- public</span></span><br><span class="line"><span class="string">|-- source</span></span><br><span class="line">   <span class="string">|-- _posts</span></span><br><span class="line"><span class="string">|-- themes</span></span><br><span class="line">   <span class="string">|-- layout</span></span><br><span class="line">   <span class="string">|-- source</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h2><p>很重要的一個檔案，這是配置整個部落格資訊的檔案，例如部落格名稱、作者、主題…等。</p>
-<h2 id="public"><a href="#public" class="headerlink" title="public"></a>public</h2><p>生成的靜態網頁存放地方，不會對這個地方做修改，大略知道就好了。</p>
-<h2 id="source"><a href="#source" class="headerlink" title="source"></a>source</h2><p>這目錄很重要，發布的文章需要放在 _posts目錄下，如果看不懂Code，只要知道在_posts底下新增<code>.md</code>就可以發文了。其他可能還會有一些像選單的資料夾，只要找到相對應的名稱，就可以做資訊上的修改。</p>
-<h2 id="themes"><a href="#themes" class="headerlink" title="themes"></a>themes</h2><p>主題資料夾，存放載下來的主題，並透過修改_config.yml裡的theme<a href="http://techdiy.tk/2018/04/12/%E5%88%A9%E7%94%A8Hexo%E8%BC%95%E9%AC%86%E5%9C%A8GitHub%E4%B8%8A%E6%89%93%E9%80%A0%E5%80%8B%E4%BA%BA%E9%83%A8%E8%90%BD%E6%A0%BC/#%E6%9B%B4%E6%8F%9BTheme" target="_blank" rel="noopener">更換主題</a>。</p>
-<h3 id="layout"><a href="#layout" class="headerlink" title="layout"></a>layout</h3><p>佈局資料夾。用於放置主題的模板檔案，決定了網站內容的呈現方式。<br>如果要修改Theme的模板就要在此資料夾下手。</p>
-<h3 id="source-1"><a href="#source-1" class="headerlink" title="source"></a>source</h3><p>原始檔案資料夾，此資料夾是儲放模板以外的檔案，例如CSS、JavaScript檔案等，經過編譯後會自動存放在public資料夾</p>
+                <p><a href="/2018/04/25/如何在Dialogflow打造專屬Google%20Assistant%20App/">上一篇</a>完成了第一步驟，接下來全部的工作都會在 <a href="https://console.actions.google.com" target="_blank" rel="noopener">Action on Google</a>，回到 Overview 應該可以看到 Actions 已經打勾了，接下來就直接第二步吧<br><img src="step.png" alt="step"></p>
+<h1 id="App-infomation"><a href="#App-infomation" class="headerlink" title="App infomation"></a>App infomation</h1><h2 id="Name"><a href="#Name" class="headerlink" title="Name"></a>Name</h2><p>點擊 Edit，輸入 Assistant 名稱，這個名稱關於之後如何讓 Assistant 連接到 App，例如我的就需輸入 Talk to Lights Controller 或者 Talk to led control<br><img src="Name.png" alt="Name"></p>
+<p><strong><em>填完這步儲存後，其實就可以打開手機上的 Google Assistant 做測試了！ </em></strong></p>
+<h2 id="Details"><a href="#Details" class="headerlink" title="Details"></a>Details</h2><p>Introduction of your actions ， 說明這個 App 可以用來幹嘛，Assistant app voice 總共有四種聲音可以選擇，當 Assistant 連到 App 聲音會變成你所選擇的， Short description 和 Full description 就簡單描述一下<br><img src="Details.png" alt="Details"></p>
+<h2 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h2><p>這個步驟個人覺得挺麻煩的，你必須上傳兩張照片，解析度分別為 1920 x 1080 及 192 x 192 用於連到 App 顯示。</p>
+<h2 id="Contact-details"><a href="#Contact-details" class="headerlink" title="Contact details"></a>Contact details</h2><p>這步驟是要填寫作者資訊，在Developer name 輸入你的名字， Email 就輸入信箱。</p>
+<h2 id="Privacy-and-consent"><a href="#Privacy-and-consent" class="headerlink" title="Privacy and consent"></a>Privacy and consent</h2><p>這個步驟為隱私權政策，如果只是測試可以先填入以下<br><img src="Privacyandconsent.png" alt="Privacy and consent"></p>
+<h2 id="Additional-Information"><a href="#Additional-Information" class="headerlink" title="Additional Information"></a>Additional Information</h2><p>選完 Home control 之後，按最下面的 Save ， 第二步驟就完成了。<br><img src="AdditionalInformation.png" alt="Additional Information"></p>
+<h1 id="Add-account-linking"><a href="#Add-account-linking" class="headerlink" title="Add account linking"></a>Add account linking</h1><p>其他的步驟其實都可以不用設定，剩下只需要填入帳號連接</p>
+<h2 id="Grant-type"><a href="#Grant-type" class="headerlink" title="Grant type"></a>Grant type</h2><p>選擇 AUthorization code , 點 NEXT 下一步<br><img src="Granttype.png" alt="Grant type"></p>
+<h2 id="Client-information"><a href="#Client-information" class="headerlink" title="Client information"></a>Client information</h2><p>這個步驟我有點不確定，因為邏輯上整個應用都是環繞在 Google ，應該也不用 OAuth ，但是這個選項又一定要輸入，所以我只好填入 <a href="https://console.cloud.google.com/apis" target="_blank" rel="noopener">Google API Console</a> 裡的資訊。</p>
+<p>選取專案，在左側選單點擊憑證，找到 OAuth 2.0 用戶端 ID 裡的 Web client (auto created by Google Service)<br><img src="GoogleAPI.png" alt="GoogleAPI"><br>填入<br><img src="information.png" alt="information"></p>
+<h2 id="Testing-instructions"><a href="#Testing-instructions" class="headerlink" title="Testing instructions"></a>Testing instructions</h2><p>這個是要填入相關測試帳號跟密碼的，隨便輸入就行了,點擊 SUBMIT DRAFT FOR REVIEW。</p>
+<h1 id="Simulator"><a href="#Simulator" class="headerlink" title="Simulator"></a>Simulator</h1><p>選單左側找到 Simulator ，輸入 Talk to … ，在網頁上測試 App 跑的情形，但是實際應用太不切實際了，不過台灣 Google Assistant 還沒開放下載，如果是使用 iPhone ，可以<a href="https://support.apple.com/zh-tw/HT201389" target="_blank" rel="noopener">切換帳號地區</a> 換到美國去下載，載完後再回覆成台灣，這樣手機裡面就有 Google Assistant 了，操作模式也跟模擬器上一樣</p>
+<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>經過四篇的洗禮，終於完成了，這邊有個小小的使用心得感想跟大家分享。第一點，語音辨識不是很精準，可能是我發音不標準，又加上沒有中文的選擇，所以可能只是為了開燈，卻花了很多時間在重複說指令。第二點，運作速度有待加強，當然這也有我家網路環境因素存在，但是有些時候 Assistant 可以馬上地作出反應，有時候指令正確，反應卻慢半拍。第三點，開發階段新功能不斷釋出，可能當你做好一陣子，會突然無法使用了，又或者當你想新增功能卻發現頁面完全不一樣，完全沒辦法下手。不過還是可以期待語音控制的發展，Google 提供那麼多資源給開發者使用，卻沒收費，就算是流量限制一般人是很難觸發的，當家電產品越來越往 Google 靠攏，那發展就指日可待。</p>
+<p>重點：<br>1.語音辨識不精準，沒中文<br>2.運作速度及穩定有待加強<br>3.尚未成熟，官方不斷更新</p>
 
                 
 
@@ -239,13 +243,9 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="next">
-                            <a href="/2018/04/21/應用 Google Assistant 打造智慧家居/" data-toggle="tooltip" data-placement="top" title="應用 Google Assistant 打造智慧家居">Next&rarr;</a>
-                        </li>
-                    
                     
                         <li class="previous">
-                            <a href="/2018/04/12/利用Hexo輕鬆在GitHub上打造個人部落格/" data-toggle="tooltip" data-placement="top" title="利用Hexo輕鬆在GitHub上打造個人部落格">&larr; Previous</a>
+                            <a href="/2018/04/25/如何在Dialogflow打造專屬Google Assistant App/" data-toggle="tooltip" data-placement="top" title="如何在Dialogflow打造專屬Google Assistant App(上)">&larr; Previous</a>
                         </li>
                     
                 </ul>
@@ -275,7 +275,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#發布第一篇文章"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">發布第一篇文章</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#修改Theme"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">修改Theme</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#config-yml"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">_config.yml</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#public"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">public</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#source"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">source</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#themes"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">themes</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#layout"><span class="toc-nav-number">2.4.1.</span> <span class="toc-nav-text">layout</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#source-1"><span class="toc-nav-number">2.4.2.</span> <span class="toc-nav-text">source</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#App-infomation"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">App infomation</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Name"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Name</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Details"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Details</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Images"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">Images</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Contact-details"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">Contact details</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Privacy-and-consent"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">Privacy and consent</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Additional-Information"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">Additional Information</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Add-account-linking"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Add account linking</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Grant-type"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">Grant type</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Client-information"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">Client information</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Testing-instructions"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">Testing instructions</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Simulator"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Simulator</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#總結"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">總結</span></a></li></ol>
         
         </div>
       </aside>
@@ -292,8 +292,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "chouhou";
-    var disqus_identifier = "http://techdiy.tk/2018/04/17/發布文章及Theme修改/";
-    var disqus_url = "http://techdiy.tk/2018/04/17/發布文章及Theme修改/";
+    var disqus_identifier = "http://techdiy.tk/2018/04/26/如何在Dialogflow打造專屬Google Assistant App(下)/";
+    var disqus_url = "http://techdiy.tk/2018/04/26/如何在Dialogflow打造專屬Google Assistant App(下)/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
