@@ -14,7 +14,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          如何在Dialogflow打造專屬Google Assistant App(上) - TechDIY | 動手玩科技
+          如何在Dialogflow打造專屬Google Assistant App - TechDIY | 動手玩科技
         
     </title>
 
@@ -99,7 +99,7 @@
                               <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
                             
                         </div>
-                        <h1>如何在Dialogflow打造專屬Google Assistant App(上)</h1>
+                        <h1>如何在Dialogflow打造專屬Google Assistant App</h1>
                         <h2 class="subheading">玩轉語音控制，智慧您的家園.</h2>
                         <span class="meta">
                             Posted by Aaron Chou on
@@ -241,8 +241,12 @@
 <hr>
 <p>主要新增 firebase-admin，目的在於處理語音同時，一起將數值儲存於Firebase裡。而 /auto/${device}/…，為 Firebase 裡的資料結構， appliances 為<a href="#新增意圖-Intents">上步驟</a>的名稱，handlerRequest 為第34行 function 的名稱。</p>
 <p>經由 WebhookClient 我們可以得到 Google Assistant 的語音拆解。在 Fulfillment 右側 Try it now 輸入 switch my light on<br> <img src="test.png" alt="test"><br>agent.parameters.devices 可以得到 light，agent.parameters.status 得到 on 。 這些資訊我們可以在Firebase Functions 紀錄看到，因為我們程式碼有 console.log<br> <img src="log.png" alt="log"><br>而 Firebase Database 裡的資料理應被我們改為on了<br> <img src="data.png" alt="data"></p>
-<h2 id="測試"><a href="#測試" class="headerlink" title="測試"></a>測試</h2><p>打開樹莓派終端機，輸入以下，並在 Dialogflow 右側試著輸入你的指令吧！<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node xxx.js //xxx為路徑＋檔案名稱</span><br></pre></td></tr></table></figure></p>
-<p><strong><em> 恭喜我們完成了最繁雜的第一步驟！ 下一篇我們就可以完成囉</em></strong></p>
+<h2 id="測試"><a href="#測試" class="headerlink" title="測試"></a>測試</h2><p>回到 <a href="https://console.actions.google.com" target="_blank" rel="noopener">Action on Google</a>，點選 Overview，在 App infomation 點擊 EDIT 鈕，找到 Assistant app name 輸入 Google Assistant 要喚醒功能的關鍵字，例如我的就需輸入 Talk to Lights Controller 或者 Talk to led control ， 輸入完畢後點擊底下的 SAVE <strong><em>即可完成測試版本</em></strong>。<br><img src="Name.png" alt="Name"></p>
+<h2 id="啟動樹莓派"><a href="#啟動樹莓派" class="headerlink" title="啟動樹莓派"></a>啟動樹莓派</h2><p>上一篇我們成功控制樹莓派並連上了 Firebase ，現在就打開程式方便等等做測試，打開樹莓派終端機，輸入以下！<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node xxx.js //xxx為路徑＋檔案名稱</span><br></pre></td></tr></table></figure></p>
+<h2 id="Simulator"><a href="#Simulator" class="headerlink" title="Simulator"></a>Simulator</h2><p>現在打開網頁模擬器試看看吧，選單左側找到 Simulator ，輸入 Talk to 你的應用 ，下達 Switch my light on ， 這時候你應該會看到燈被點亮了，那就恭喜完成了 ！！</p>
+<blockquote>
+<p>在網頁上測試 App 運行情形，但實際應用太不切實際了。不過台灣 Google Assistant 還沒開放下載，如果是使用 iPhone ，可以<a href="https://support.apple.com/zh-tw/HT201389" target="_blank" rel="noopener">切換帳號地區</a> 到美國去下載，載完後再回覆成台灣，這樣手機裡面就有 Google Assistant 了，操作模式也跟模擬器上一樣</p>
+</blockquote>
 
                 
 
@@ -282,7 +286,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Dialogflow-是什麼？"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Dialogflow 是什麼？</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Action-on-Google"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Action on Google</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#架構圖"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">架構圖</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#建立專案"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">建立專案</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#編輯專案"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">編輯專案</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Dialogflow"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">Dialogflow</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#新增關鍵字-Entities"><span class="toc-nav-number">5.1.1.</span> <span class="toc-nav-text">新增關鍵字(Entities)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#新增意圖-Intents"><span class="toc-nav-number">5.1.2.</span> <span class="toc-nav-text">新增意圖(Intents)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Fulfillment"><span class="toc-nav-number">5.1.3.</span> <span class="toc-nav-text">Fulfillment</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#測試"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">測試</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Dialogflow-是什麼？"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Dialogflow 是什麼？</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Action-on-Google"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Action on Google</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#架構圖"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">架構圖</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#建立專案"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">建立專案</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#編輯專案"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">編輯專案</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Dialogflow"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">Dialogflow</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#新增關鍵字-Entities"><span class="toc-nav-number">5.1.1.</span> <span class="toc-nav-text">新增關鍵字(Entities)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#新增意圖-Intents"><span class="toc-nav-number">5.1.2.</span> <span class="toc-nav-text">新增意圖(Intents)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Fulfillment"><span class="toc-nav-number">5.1.3.</span> <span class="toc-nav-text">Fulfillment</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#測試"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">測試</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#啟動樹莓派"><span class="toc-nav-number">5.3.</span> <span class="toc-nav-text">啟動樹莓派</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Simulator"><span class="toc-nav-number">5.4.</span> <span class="toc-nav-text">Simulator</span></a></li></ol></li></ol>
         
         </div>
       </aside>
