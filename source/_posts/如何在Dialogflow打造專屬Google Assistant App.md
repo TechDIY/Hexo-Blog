@@ -1,5 +1,5 @@
 ---
-title: "如何在Dialogflow打造專屬Google Assistant App(上)"
+title: "如何在Dialogflow打造專屬Google Assistant App"
 catalog: true
 date: 2018-04-25 14:10:24
 subtitle: "玩轉語音控制，智慧您的家園."
@@ -140,10 +140,28 @@ agent.parameters.devices 可以得到 light，agent.parameters.status 得到 on 
 而 Firebase Database 裡的資料理應被我們改為on了
  ![data](data.png)
 
+
 ## 測試
-打開樹莓派終端機，輸入以下，並在 Dialogflow 右側試著輸入你的指令吧！
+
+回到 [Action on Google](https://console.actions.google.com)，點選 Overview，在 App infomation 點擊 EDIT 鈕，找到 Assistant app name 輸入 Google Assistant 要喚醒功能的關鍵字，例如我的就需輸入 Talk to Lights Controller 或者 Talk to led control ， 輸入完畢後點擊底下的 SAVE ***即可完成測試版本***。 
+![Name](Name.png)
+
+## 啟動樹莓派
+上一篇我們成功控制樹莓派並連上了 Firebase ，現在就打開程式方便等等做測試，打開樹莓派終端機，輸入以下！
 ```bash
 node xxx.js //xxx為路徑＋檔案名稱
 ```
 
-*** 恭喜我們完成了最繁雜的第一步驟！ 下一篇我們就可以完成囉***
+## Simulator
+現在打開網頁模擬器試看看吧，選單左側找到 Simulator ，輸入 Talk to 你的應用 ，下達 Switch my light on ， 這時候你應該會看到燈被點亮了，那就恭喜完成了 ！！
+
+
+
+
+>在網頁上測試 App 運行情形，但實際應用太不切實際了。不過台灣 Google Assistant 還沒開放下載，如果是使用 iPhone ，可以[切換帳號地區](https://support.apple.com/zh-tw/HT201389) 到美國去下載，載完後再回覆成台灣，這樣手機裡面就有 Google Assistant 了，操作模式也跟模擬器上一樣
+
+
+
+
+
+
