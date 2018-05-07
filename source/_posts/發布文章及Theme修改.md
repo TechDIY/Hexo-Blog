@@ -1,5 +1,5 @@
 ---
-title: "發布文章及Theme修改"
+title: "GitHub Page 發布文章及Theme修改"
 catalog: true
 date: 2018-04-17 13:10:24
 subtitle: "快速、簡單且強大的網誌框架."
@@ -7,6 +7,7 @@ header-img:  "header.png"
 tags:
 - Hexo
 - GitHub
+- GitHub Page
 catagories:
 - 教學
 ---
