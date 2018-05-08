@@ -78,14 +78,14 @@ aplay --format=S16_LE --rate=16000 out.raw
 ## 開啟註冊頁面
 1. 打開 [Actions Console](https://console.actions.google.com/)
 2. 選取之前創建過的專案
-3. 在左側選單選擇 ***Connected properties***
-4. 選擇 ***DEVICE MODELS***
-5. 點擊 ***REGISTER MODEL***
+3. 在左側選單選擇 **Connected properties**
+4. 選擇 **DEVICE MODELS**
+5. 點擊 **REGISTER MODEL**
 ![Connected properties](https://developers.google.com/assistant/sdk/images/console/device-models-aog.png)
 
 ## 註冊裝置
 1. 填入所有資訊
-2. 完畢後點擊 ***REGISTER MODEL***
+2. 完畢後點擊 **REGISTER MODEL**
 ![Create model](https://developers.google.com/assistant/sdk/images/console/create-model.png)
 
 ## 下載證書
@@ -97,7 +97,7 @@ scp ~/Downloads/credentials.json pi@raspberry-pi-ip-address:/home/pi/
 ![Download credentials](https://developers.google.com/assistant/sdk/images/console/download-credentials.png)
 
 ## 特別特徵
-這步驟主要是強調裝置支持的功能，可以先點 ***SKIP***
+這步驟主要是強調裝置支持的功能，可以先點 **SKIP**
 
 完成後可以看到以下
 ![model](https://developers.google.com/assistant/sdk/images/console/model-list.png)
@@ -109,7 +109,7 @@ scp ~/Downloads/credentials.json pi@raspberry-pi-ip-address:/home/pi/
 ## Python 虛擬環境
 為什麼要安裝虛擬環境？ 因為開發過程我們會安裝許多套件，如果不獨立則會全部安裝在 Global 的環境，之後要打包就會比較麻煩。
 
-***Python 3：***
+**Python 3：**
 ```bash
 sudo apt-get update
 sudo apt-get install python3-dev python3-venv
@@ -118,7 +118,7 @@ env/bin/python -m pip install --upgrade pip setuptools wheel
 source env/bin/activate
 ```
 
-***Python 2.7：***
+**Python 2.7：**
 ```bash
 sudo apt-get update
 sudo apt-get install python-dev python-virtualenv
@@ -179,13 +179,14 @@ googlesamples-assistant-hotword --project_id my-dev-project --device_model_id my
 
 
 開始用力的玩 Google Assistant 吧 ！ 你可以試試 Ok Google 或 Hey Google ，喚醒裝置並嘗試你的問題。
-&ensp;&ensp;&ensp;● Who am I? 
-&ensp;&ensp;&ensp;● What time is it? &ensp
-&ensp;&ensp;&ensp;● What is the weather in San Francisco? &ensp
+*   Who am I? 
+*   What time is it? &ensp
+*   What is the weather in San Francisco? &ensp
+
 
 另外如果你已經完成 [Dialogflow打造專屬Google Assistant App](/2018/04/25/如何在Dialogflow打造專屬Google Assistant App)，還可以叫 Google Assistant 連到你的 App喔。
-&ensp;&ensp;&ensp;1. Ok Google , Talk to ...    
-&ensp;&ensp;&ensp;2. Switch my light on.
+1.  Ok Google , Talk to ...    
+2.  Switch my light on.
 
 
 
