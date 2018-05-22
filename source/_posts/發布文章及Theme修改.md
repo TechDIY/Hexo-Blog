@@ -43,7 +43,7 @@ hexo s -p 8080     //開啟8080 port
 確定沒問題後，再將靜態文件發布在GitHub，別忘了將原始文件檔也上傳到GitHub的分支上，避免換環境之後，想修改內容卻沒檔案。
 ```yml
 hexo -d               //上傳靜態文件於GitHub
-git add.              //添加文檔夾下的所有文檔
+git add .              //添加文檔夾下的所有文檔
 git commit -m "New"   //引號內為此次提交説明
 git push -u origin hexo // 推送到Github，hexo為我所建的分支
 ```
