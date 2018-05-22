@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          GitHub Page 發布文章及Theme修改 - TechDIY | 動手玩科技
+          應用 Google Assistant 打造智慧插座 - TechDIY | 動手玩科技
         
     </title>
 
-    <link rel="canonical" href="http://techdiy.tk/2018/04/17/發布文章及Theme修改/">
+    <link rel="canonical" href="http://techdiy.tk/2018/04/27/應用 Google Assistant 打造智慧插座/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -70,8 +70,8 @@
     header.intro-header{
         
             
-                background-image: url('header.png')
-             
+                background-image: url('/img/header_img/post_header.png')
+              
             /*post*/
         
     }
@@ -88,18 +88,22 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
+                              <a class="tag" href="/tags/#Google Assistant" title="Google Assistant">Google Assistant</a>
                             
-                              <a class="tag" href="/tags/#GitHub" title="GitHub">GitHub</a>
+                              <a class="tag" href="/tags/#Firebase" title="Firebase">Firebase</a>
                             
-                              <a class="tag" href="/tags/#GitHub Page" title="GitHub Page">GitHub Page</a>
+                              <a class="tag" href="/tags/#Dialogflow" title="Dialogflow">Dialogflow</a>
+                            
+                              <a class="tag" href="/tags/#Raspberry Pi" title="Raspberry Pi">Raspberry Pi</a>
+                            
+                              <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
                             
                         </div>
-                        <h1>GitHub Page 發布文章及Theme修改</h1>
-                        <h2 class="subheading">快速、簡單且強大的網誌框架.</h2>
+                        <h1>應用 Google Assistant 打造智慧插座</h1>
+                        <h2 class="subheading">玩轉語音控制，智慧您的家園.</h2>
                         <span class="meta">
                             Posted by Aaron Chou on
-                            2018-04-17
+                            2018-04-27
                         </span>
                     </div>
                 
@@ -216,24 +220,22 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="發布第一篇文章"><a href="#發布第一篇文章" class="headerlink" title="發布第一篇文章"></a>發布第一篇文章</h1><hr>
-<p>繼上一篇<a href="http://techdiy.tk/2018/04/12/%E5%88%A9%E7%94%A8Hexo%E8%BC%95%E9%AC%86%E5%9C%A8GitHub%E4%B8%8A%E6%89%93%E9%80%A0%E5%80%8B%E4%BA%BA%E9%83%A8%E8%90%BD%E6%A0%BC/">打照個人部落格</a>成功架設了自己的部落格，是該來發布第一篇文章，打開本地端資料夾，依照路徑新增一個檔案，檔名為<code>.md</code></p>
-<blockquote>
-<p>資料夾 → source→ _posts→ 新增檔案.md </p>
-</blockquote>
-<p>檔頭格式依照所下載的主題提供的方法做編寫，例如我的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">title: <span class="string">"發布文章及Theme修改"</span></span><br><span class="line">catalog: <span class="literal">true</span></span><br><span class="line">date: 2018-04-17 13:10:24</span><br><span class="line">subtitle: <span class="string">"快速、簡單且強大的網誌框架."</span></span><br><span class="line">header-img:  <span class="string">"header.png"</span></span><br><span class="line">tags:</span><br><span class="line">- Hexo</span><br><span class="line">- GitHub</span><br><span class="line">catagories:</span><br><span class="line">- 教學</span><br></pre></td></tr></table></figure></p>
-<p>至於文章內容的話，在作者在Git上應該也會說明，如果沒有的話，其實也沒關係，因為Hexo 是使用<a href="https://wastemobile.gitbooks.io/gitbook-chinese/content/format/markdown.html" target="_blank" rel="noopener">Markdown 標記語法</a>，只要遵循語法寫就好了。</p>
-<p>寫完文章後先在本地端測試<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">hexo</span> <span class="string">g</span>              <span class="string">//生成靜態文件</span></span><br><span class="line"><span class="string">hexo</span> <span class="string">s</span> <span class="bullet">-p</span> <span class="number">8080</span>     <span class="string">//開啟8080</span> <span class="string">port</span></span><br></pre></td></tr></table></figure></p>
-<p>確定沒問題後，再將靜態文件發布在GitHub，別忘了將原始文件檔也上傳到GitHub的分支上，避免換環境之後，想修改內容卻沒檔案。<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">hexo</span> <span class="bullet">-d</span>               <span class="string">//上傳靜態文件於GitHub</span></span><br><span class="line"><span class="string">git</span> <span class="string">add.</span>              <span class="string">//添加文檔夾下的所有文檔</span></span><br><span class="line"><span class="string">git</span> <span class="string">commit</span> <span class="bullet">-m</span> <span class="string">"New"</span>   <span class="string">//引號內為此次提交説明</span></span><br><span class="line"><span class="string">git</span> <span class="string">push</span> <span class="bullet">-u</span> <span class="string">origin</span> <span class="string">hexo</span> <span class="string">//</span> <span class="string">推送到Github，hexo為我所建的分支</span></span><br></pre></td></tr></table></figure></p>
-<p>完成！打開網頁去看看自己發的第一篇文章吧！</p>
-<h1 id="修改Theme"><a href="#修改Theme" class="headerlink" title="修改Theme"></a>修改Theme</h1><hr>
-<p>這部需要有點基礎，不過透過了解Hexo的基礎結構後，會比較好下手修改。<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">|-- _config.yml</span></span><br><span class="line"><span class="string">|-- public</span></span><br><span class="line"><span class="string">|-- source</span></span><br><span class="line">   <span class="string">|-- _posts</span></span><br><span class="line"><span class="string">|-- themes</span></span><br><span class="line">   <span class="string">|-- layout</span></span><br><span class="line">   <span class="string">|-- source</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h2><p>很重要的一個檔案，這是配置整個部落格資訊的檔案，例如部落格名稱、作者、主題…等。</p>
-<h2 id="public"><a href="#public" class="headerlink" title="public"></a>public</h2><p>生成的靜態網頁存放地方，不會對這個地方做修改，大略知道就好了。</p>
-<h2 id="source"><a href="#source" class="headerlink" title="source"></a>source</h2><p>這目錄很重要，發布的文章需要放在 _posts目錄下，如果看不懂Code，只要知道在_posts底下新增<code>.md</code>就可以發文了。其他可能還會有一些像選單的資料夾，只要找到相對應的名稱，就可以做資訊上的修改。</p>
-<h2 id="themes"><a href="#themes" class="headerlink" title="themes"></a>themes</h2><p>主題資料夾，存放載下來的主題，並透過修改_config.yml裡的theme<a href="http://techdiy.tk/2018/04/12/%E5%88%A9%E7%94%A8Hexo%E8%BC%95%E9%AC%86%E5%9C%A8GitHub%E4%B8%8A%E6%89%93%E9%80%A0%E5%80%8B%E4%BA%BA%E9%83%A8%E8%90%BD%E6%A0%BC/#%E6%9B%B4%E6%8F%9BTheme">更換主題</a>。</p>
-<h3 id="layout"><a href="#layout" class="headerlink" title="layout"></a>layout</h3><p>佈局資料夾。用於放置主題的模板檔案，決定了網站內容的呈現方式。<br>如果要修改Theme的模板就要在此資料夾下手。</p>
-<h3 id="source-1"><a href="#source-1" class="headerlink" title="source"></a>source</h3><p>原始檔案資料夾，此資料夾是儲放模板以外的檔案，例如CSS、JavaScript檔案等，經過編譯後會自動存放在public資料夾</p>
+                <p>前一篇有教在<a href="/2018/04/25/如何在Dialogflow打造專屬Google Assistant App">Dialogflow打造專屬Google Assistant App</a> ，這次要來個小小的延伸，利用 Google Assistant 控制 Relay 來達到智慧插座的目的。</p>
+<h2 id="原理圖"><a href="#原理圖" class="headerlink" title="原理圖"></a>原理圖</h2><p>首先我們先來看一下智慧插座的原理圖，簡單來說可以分為兩個部分，控制系統(輸入)和被控制系統(輸出)，將原本兩條直通插座的其中一條，改為連接到 Relay 模組，再利用樹莓派控制GPIO，即可完成智慧插座，簡單吧！<br><img src="all.png" alt="all"></p>
+<h2 id="材料"><a href="#材料" class="headerlink" title="材料"></a>材料</h2><p>需要的材料有</p>
+<ol>
+<li>繼電器模組</li>
+<li>插座</li>
+<li>單心線</li>
+<li>快速接頭</li>
+<li>杜邦接線三條(母-母)</li>
+<li>樹莓派</li>
+</ol>
+<h2 id="繼電器"><a href="#繼電器" class="headerlink" title="繼電器"></a>繼電器</h2><p>繼電器是自動控制電路常見元件，透過小電流控制大電流，達到控制開關的目的。小電流用電訊號進行控制(左)，利用電磁原理讓金屬簧片切換，進而讓電器開路或斷路(右)。<br><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Relais_Animation.gif/440px-Relais_Animation.gif" alt="Relay"></p>
+<p>繼電器規格有很多種，得依造上面的標記去做判斷，例如我的 5vDC、125vAC 15A。5v就是驅動電壓，通常都是用晶片控制所以會是直流(DC)，而晶片輸出的電流有可能電流不足，無法驅動繼電器，所以在驅動繼電器之前會有電晶體做放大。125vAC 15A 指的是在市電 110v下最高電流為 15A，另外輸出端有三個接點，分別為共接點(COM)、常開(NO)、常閉(NC)，必須依造自己需求選擇要接 NO 或 NC ，例如我們要在驅動繼電器後才開始動作，所以必須接常開。<br><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Relay_inside.JPG/400px-Relay_inside.JPG" alt="Relay"></p>
+<h2 id="控制GPIO"><a href="#控制GPIO" class="headerlink" title="控制GPIO"></a>控制GPIO</h2><p>選定樹莓派一隻腳位做輸出，例如我選 GPIO18，加上<a href="/2018/04/25/如何在Dialogflow打造專屬Google Assistant App">上一篇</a>的程式碼，如下，apiKey、authDomain、databaseURL 填入自己Firebase資訊。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> firebase = <span class="built_in">require</span>(<span class="string">"firebase"</span>);</span><br><span class="line"><span class="keyword">var</span> config = &#123;</span><br><span class="line">  apiKey: <span class="string">""</span>,</span><br><span class="line">  authDomain: <span class="string">""</span>,</span><br><span class="line">  databaseURL: <span class="string">""</span>,</span><br><span class="line">&#125;;</span><br><span class="line">firebase.initializeApp(config);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> db  = firebase.database();</span><br><span class="line"><span class="keyword">var</span> ref = db.ref(<span class="string">"/auto"</span>);</span><br><span class="line">ref.on(<span class="string">"value"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">snapshot</span>) </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">var</span> Light_value = snapshot.val().light.value;</span><br><span class="line">	<span class="keyword">var</span> FAN_value = snapshot.val().fan.value;</span><br><span class="line">	blinkLED(Light_value);</span><br><span class="line">  	SwitchFan(FAN_value);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> gpio = <span class="built_in">require</span>(<span class="string">"onoff"</span>).Gpio;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> LEDR = <span class="keyword">new</span> gpio(<span class="number">13</span>, <span class="string">'out'</span>);</span><br><span class="line"><span class="keyword">const</span> LEDG = <span class="keyword">new</span> gpio(<span class="number">5</span>, <span class="string">'out'</span>);</span><br><span class="line"><span class="keyword">const</span> LEDB = <span class="keyword">new</span> gpio(<span class="number">6</span>,<span class="string">'out'</span>);</span><br><span class="line"><span class="keyword">const</span> FAN  = <span class="keyword">new</span> gpio(<span class="number">18</span>,<span class="string">'out'</span>);</span><br><span class="line"></span><br><span class="line">LEDR.writeSync(<span class="number">1</span>);</span><br><span class="line">LEDG.writeSync(<span class="number">1</span>);</span><br><span class="line">LEDB.writeSync(<span class="number">1</span>);</span><br><span class="line">FAN.writeSync(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">blinkLED</span>(<span class="params">State</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (State === <span class="string">'on'</span>) &#123;</span><br><span class="line">		LEDR.writeSync(<span class="number">0</span>);</span><br><span class="line">		LEDG.writeSync(<span class="number">0</span>);</span><br><span class="line">		LEDB.writeSync(<span class="number">0</span>);</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		LEDR.writeSync(<span class="number">1</span>);</span><br><span class="line">		LEDG.writeSync(<span class="number">1</span>);</span><br><span class="line">		LEDB.writeSync(<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SwitchFan</span>(<span class="params">State</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (State === <span class="string">'on'</span>) &#123;</span><br><span class="line">    FAN.writeSync(<span class="number">0</span>);</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    FAN.writeSync(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Dialogflow"><a href="#Dialogflow" class="headerlink" title="Dialogflow"></a>Dialogflow</h2><p>登入Dialogflow ， 開啟之前的專案，在 Intents 新增智慧插座的關鍵字，例如 Switch off the fan， Entities 新增裝置名稱，例如 Fan …等。<br><img src="Intents.png" alt="Intents"><br><img src="Entities.png" alt="Entities"></p>
+<h2 id="測試"><a href="#測試" class="headerlink" title="測試"></a>測試</h2><p>在樹莓派上執行 javascript 檔案，並在 Dialogflow 右側輸入關鍵字 Switch off the fan ，如果看到 Firebase 多了一個 Fan 的結構，恭喜你完成囉！</p>
 
                 
 
@@ -242,12 +244,12 @@
                 <ul class="pager">
                     
                         <li class="next">
-                            <a href="/2018/04/21/應用 Google Assistant 打造智慧家居/" data-toggle="tooltip" data-placement="top" title="應用 Google Assistant 打造智慧家居">Next&rarr;</a>
+                            <a href="/2018/05/05/樹莓派變身Google Home/" data-toggle="tooltip" data-placement="top" title="樹莓派變身Google Home">Next&rarr;</a>
                         </li>
                     
                     
                         <li class="previous">
-                            <a href="/2018/04/12/利用Hexo輕鬆在GitHub上打造個人部落格/" data-toggle="tooltip" data-placement="top" title="利用Hexo輕鬆在GitHub上打造個人部落格">&larr; Previous</a>
+                            <a href="/2018/04/25/如何在Dialogflow打造專屬Google Assistant App/" data-toggle="tooltip" data-placement="top" title="如何在Dialogflow打造專屬Google Assistant App">&larr; Previous</a>
                         </li>
                     
                 </ul>
@@ -277,7 +279,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#發布第一篇文章"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">發布第一篇文章</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#修改Theme"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">修改Theme</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#config-yml"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">_config.yml</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#public"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">public</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#source"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">source</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#themes"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">themes</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#layout"><span class="toc-nav-number">2.4.1.</span> <span class="toc-nav-text">layout</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#source-1"><span class="toc-nav-number">2.4.2.</span> <span class="toc-nav-text">source</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#原理圖"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">原理圖</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#材料"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">材料</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#繼電器"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">繼電器</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#控制GPIO"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">控制GPIO</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Dialogflow"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">Dialogflow</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#測試"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">測試</span></a></li></ol>
         
         </div>
       </aside>
@@ -294,8 +296,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "chouhou";
-    var disqus_identifier = "http://techdiy.tk/2018/04/17/發布文章及Theme修改/";
-    var disqus_url = "http://techdiy.tk/2018/04/17/發布文章及Theme修改/";
+    var disqus_identifier = "http://techdiy.tk/2018/04/27/應用 Google Assistant 打造智慧插座/";
+    var disqus_url = "http://techdiy.tk/2018/04/27/應用 Google Assistant 打造智慧插座/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

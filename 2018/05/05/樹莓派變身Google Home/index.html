@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          樹莓派變身Google Home - TechDIY | 動手玩科技
+        
+    </title>
+
+    <link rel="canonical" href="http://techdiy.tk/2018/05/05/樹莓派變身Google Home/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/TechDIY.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            
+                background-image: url('/img/header_img/post_header.png')
+              
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#Raspberry Pi" title="Raspberry Pi">Raspberry Pi</a>
+                            
+                              <a class="tag" href="/tags/#Google Home" title="Google Home">Google Home</a>
+                            
+                        </div>
+                        <h1>樹莓派變身Google Home</h1>
+                        <h2 class="subheading">玩轉語音控制，智慧您的家園.</h2>
+                        <span class="meta">
+                            Posted by Aaron Chou on
+                            2018-05-05
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">TechDIY</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">首頁</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">關於</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">文章</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">分類</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><hr>
+<p>之前 <a href="/2018/04/25/如何在Dialogflow打造專屬Google Assistant App">Dialogflow打造專屬Google Assistant App</a> ，只是應用 Dialogflow 做測試，或者手機上的 Google Assistant ，但在實際應用上還是挺麻煩的，於是乎這篇就現身了，此篇教學如何讓樹莓派變身為 Google Home。</p>
+<h1 id="設備"><a href="#設備" class="headerlink" title="設備"></a>設備</h1><hr>
+<p>在開始之前需要準備以下：</p>
+<ol>
+<li>樹莓派並安裝好<a href="https://www.raspberrypi.org/downloads/noobs/" target="_blank" rel="noopener">NOOBS</a></li>
+<li>USB 麥克風</li>
+<li>喇叭(3.5mm 或 USB)</li>
+</ol>
+<h1 id="硬體測試"><a href="#硬體測試" class="headerlink" title="硬體測試"></a>硬體測試</h1><hr>
+<p>首先必須將麥克風及喇叭接到樹莓派上，並記錄裝置位置</p>
+<ol>
+<li>打開樹莓派終端機，找到 USB 麥克風<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arecord -l</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="microphone.png" alt="microphone"></p>
+<ol start="2">
+<li>找到喇叭，需注意如果使用 3.5mm 找到的位置是 Analog 或 bcm2835 ALSA，不是 bcm2835 IEC958/HDMI<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aplay -l</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="speaker.png" alt="speaker"></p>
+<ol start="3">
+<li><p>在樹莓派路徑(/home/pi)裡創建一個新檔案，檔名為<code>.asoundrc</code>，並填入剛剛紀錄的裝置位置，註解處為我的設定</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">pcm</span>.!<span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="class"><span class="keyword">type</span> asym</span></span><br><span class="line">  capture.pcm <span class="string">"mic"</span></span><br><span class="line">  playback.pcm <span class="string">"speaker"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title">pcm</span>.mic &#123;</span><br><span class="line">  <span class="class"><span class="keyword">type</span> plug</span></span><br><span class="line">  slave &#123;</span><br><span class="line">    pcm <span class="string">"hw:&lt;card number&gt;,&lt;device number&gt;"</span>   //pcm <span class="string">"hw:1,0"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title">pcm</span>.speaker &#123;</span><br><span class="line">  <span class="class"><span class="keyword">type</span> plug</span></span><br><span class="line">  slave &#123; </span><br><span class="line">    pcm <span class="string">"hw:&lt;card number&gt;,&lt;device number&gt;"</span>  // pcm <span class="string">"hw:0,1"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>測試喇叭<br>在終端機輸入以下，聽聽看喇叭是否有聲音，測試完畢後，鍵盤Ctrl+C 即可退出。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">speaker-test -t wav</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>測試麥克風<br>在終端機輸入以下，及開始錄音</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arecord --format=S16_LE --duration=5 --rate=16000 --file-type=raw out.raw</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>聽取剛剛路的一小段錄音，確認是否正常運作<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aplay --format=S16_LE --rate=16000 out.raw</span><br></pre></td></tr></table></figure></p>
+<h1 id="註冊裝置"><a href="#註冊裝置" class="headerlink" title="註冊裝置"></a>註冊裝置</h1><hr>
+<h2 id="開啟註冊頁面"><a href="#開啟註冊頁面" class="headerlink" title="開啟註冊頁面"></a>開啟註冊頁面</h2><ol>
+<li>打開 <a href="https://console.actions.google.com/" target="_blank" rel="noopener">Actions Console</a></li>
+<li>選取之前創建過的專案</li>
+<li>在左側選單選擇 <strong>Connected properties</strong></li>
+<li>選擇 <strong>DEVICE MODELS</strong></li>
+<li>點擊 <strong>REGISTER MODEL</strong><br><img src="https://developers.google.com/assistant/sdk/images/console/device-models-aog.png" alt="Connected properties"></li>
+</ol>
+<h2 id="註冊裝置-1"><a href="#註冊裝置-1" class="headerlink" title="註冊裝置"></a>註冊裝置</h2><ol>
+<li>填入所有資訊</li>
+<li>完畢後點擊 <strong>REGISTER MODEL</strong><br><img src="https://developers.google.com/assistant/sdk/images/console/create-model.png" alt="Create model"></li>
+</ol>
+<h2 id="下載證書"><a href="#下載證書" class="headerlink" title="下載證書"></a>下載證書</h2><p>這是個很重要的檔案，之後安裝 Assistant SDK 需要用到它，下載到電腦後，我們必須將檔案傳到樹莓派，路徑為/home/pi </p>
+<ol>
+<li>打開電腦終端機(非樹莓派)，利用 scp 指令傳送檔案 ，並輸入密碼，即可將檔案傳到樹莓派。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp ~/Downloads/credentials.json pi@raspberry-pi-ip-address:/home/pi/</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="https://developers.google.com/assistant/sdk/images/console/download-credentials.png" alt="Download credentials"></p>
+<h2 id="特別特徵"><a href="#特別特徵" class="headerlink" title="特別特徵"></a>特別特徵</h2><p>這步驟主要是強調裝置支持的功能，可以先點 <strong>SKIP</strong></p>
+<p>完成後可以看到以下<br><img src="https://developers.google.com/assistant/sdk/images/console/model-list.png" alt="model"></p>
+<h1 id="安裝SDK"><a href="#安裝SDK" class="headerlink" title="安裝SDK"></a>安裝SDK</h1><hr>
+<p>首先樹莓派裡需要有安裝 Python ，通常在裝 NOOBS 就會預先安裝了。</p>
+<h2 id="Python-虛擬環境"><a href="#Python-虛擬環境" class="headerlink" title="Python 虛擬環境"></a>Python 虛擬環境</h2><p>為什麼要安裝虛擬環境？ 因為開發過程我們會安裝許多套件，如果不獨立則會全部安裝在 Global 的環境，之後要打包就會比較麻煩。</p>
+<p><strong>Python 3：</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install python3-dev python3-venv</span><br><span class="line">python3 -m venv env</span><br><span class="line">env/bin/python -m pip install --upgrade pip setuptools wheel</span><br><span class="line"><span class="built_in">source</span> env/bin/activate</span><br></pre></td></tr></table></figure></p>
+<p><strong>Python 2.7：</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install python-dev python-virtualenv</span><br><span class="line">virtualenv env --no-site-packages</span><br><span class="line">env/bin/python -m pip install --upgrade pip setuptools wheel</span><br><span class="line"><span class="built_in">source</span> env/bin/activate</span><br></pre></td></tr></table></figure></p>
+<p>安裝並開啟虛擬環境完成後，終端機開頭會變成 (env)<br>會出現 env 是因為我們第3步開啟的虛擬環境資料夾就叫 env ，之後如果需要再次開啟虛擬環境只需再次輸入第五步。 source activate 用意就是開始虛擬環境，如果要結束輸入以下。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deactivate</span><br></pre></td></tr></table></figure></p>
+<h2 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h2><p>Google Assistant 安裝包裡面包含程式碼外還有一些範例，安裝完畢後即可像Google Home一樣對話<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install portaudio19-dev libffi-dev libssl-dev</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install --upgrade google-assistant-library</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install --upgrade google-assistant-sdk[samples]</span><br></pre></td></tr></table></figure>
+<h2 id="認證"><a href="#認證" class="headerlink" title="認證"></a>認證</h2><ol>
+<li><p>在認證之前還必須安裝工具</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install --upgrade google-auth-oauthlib[tool]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用之前<a href="#下載證書">下載的憑證</a>進行認證，<br>在終端機輸入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">google-oauthlib-tool --scope https://www.googleapis.com/auth/assistant-sdk-prototype \</span><br><span class="line">          --save --headless --client-secrets /home/pi/credentials.json</span><br></pre></td></tr></table></figure>
+<p>你會看到一串網址在終端機</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Please visit this URL to authorize this application: https://...</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>開啟網頁並前往複製的網址，你應該會看到登入Google 帳號要求</p>
+</li>
+<li>在開放權限後你會看到網頁出現 “4/XXXX”，複製並貼在終端機<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enter the authorization code:</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>成功之後會看到證書被儲存了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">credentials saved: /path/to/.config/google-oauthlib-tool/credentials.json</span><br></pre></td></tr></table></figure></p>
+<h1 id="執行"><a href="#執行" class="headerlink" title="執行"></a>執行</h1><p>先前步驟都完成了，現在只需要在終端機輸入以下即可讓樹莓派變身成為 Google Home。</p>
+<ol>
+<li>填入 <code>my-dev-project</code> ，此為  <a href="https://console.actions.google.com/" target="_blank" rel="noopener">Actions Console</a> 專案的ID，點擊左側選單 Overview 的齒輪，就可以看到 Project ID 。</li>
+<li>填入 <code>my-model</code> ，此為<a href="#註冊裝置">先前步驟</a>所建立的 model ， 在 Connected properties 的 DEVICE MODELS 就可以看到 Model ID 。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">googlesamples-assistant-hotword --project_id my-dev-project --device_model_id my-model</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>開始用力的玩 Google Assistant 吧 ！ 你可以試試 Ok Google 或 Hey Google ，喚醒裝置並嘗試你的問題。</p>
+<ul>
+<li>Who am I? </li>
+<li>What time is it? &amp;ensp</li>
+<li>What is the weather in San Francisco? &amp;ensp</li>
+</ul>
+<p>另外如果你已經完成 <a href="/2018/04/25/如何在Dialogflow打造專屬Google Assistant App">Dialogflow打造專屬Google Assistant App</a>，還可以叫 Google Assistant 連到你的 App喔。</p>
+<ol>
+<li>Ok Google , Talk to …    </li>
+<li>Switch my light on.</li>
+</ol>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="next">
+                            <a href="/2018/05/08/Google Assistant Smart Home 簡介/" data-toggle="tooltip" data-placement="top" title="Google Assistant Smart Home 簡介">Next&rarr;</a>
+                        </li>
+                    
+                    
+                        <li class="previous">
+                            <a href="/2018/04/27/應用 Google Assistant 打造智慧插座/" data-toggle="tooltip" data-placement="top" title="應用 Google Assistant 打造智慧插座">&larr; Previous</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                    <div class="comment">
+                        <div id="disqus_thread" class="disqus-thread"></div>
+                    </div>
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#前言"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">前言</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#設備"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">設備</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#硬體測試"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">硬體測試</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#註冊裝置"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">註冊裝置</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#開啟註冊頁面"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">開啟註冊頁面</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#註冊裝置-1"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">註冊裝置</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#下載證書"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">下載證書</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#特別特徵"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">特別特徵</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#安裝SDK"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">安裝SDK</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Python-虛擬環境"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">Python 虛擬環境</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#安裝"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">安裝</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#認證"><span class="toc-nav-number">5.3.</span> <span class="toc-nav-text">認證</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#執行"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">執行</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus embedded js code start (one page only need to embed once) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "chouhou";
+    var disqus_identifier = "http://techdiy.tk/2018/05/05/樹莓派變身Google Home/";
+    var disqus_url = "http://techdiy.tk/2018/05/05/樹莓派變身Google Home/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus embedded js code start end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/100000154034144">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/TechDIY">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/周侯佑">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Aaron Chou 2018 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="https://github.com/TechDIY/Blog.git">TechDIY</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=TechDIY&repo=Blog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://techdiy.tk/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-118074422-1';
+    var _gaDomain = 'techdiy.tk';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+    
+<!-- Image to hack wechat -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

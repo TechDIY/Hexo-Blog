@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          GitHub Page 發布文章及Theme修改 - TechDIY | 動手玩科技
+          Google Assistant Smart Home 簡介 - TechDIY | 動手玩科技
         
     </title>
 
-    <link rel="canonical" href="http://techdiy.tk/2018/04/17/發布文章及Theme修改/">
+    <link rel="canonical" href="http://techdiy.tk/2018/05/08/Google Assistant Smart Home 簡介/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -70,8 +70,8 @@
     header.intro-header{
         
             
-                background-image: url('header.png')
-             
+                background-image: url('/img/header_img/post_header.png')
+              
             /*post*/
         
     }
@@ -88,18 +88,18 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
+                              <a class="tag" href="/tags/#Google Assistant" title="Google Assistant">Google Assistant</a>
                             
-                              <a class="tag" href="/tags/#GitHub" title="GitHub">GitHub</a>
+                              <a class="tag" href="/tags/#Smart Home" title="Smart Home">Smart Home</a>
                             
-                              <a class="tag" href="/tags/#GitHub Page" title="GitHub Page">GitHub Page</a>
+                              <a class="tag" href="/tags/#Actions on Google" title="Actions on Google">Actions on Google</a>
                             
                         </div>
-                        <h1>GitHub Page 發布文章及Theme修改</h1>
-                        <h2 class="subheading">快速、簡單且強大的網誌框架.</h2>
+                        <h1>Google Assistant Smart Home 簡介</h1>
+                        <h2 class="subheading">玩轉語音控制，智慧您的家園.</h2>
                         <span class="meta">
                             Posted by Aaron Chou on
-                            2018-04-17
+                            2018-05-08
                         </span>
                     </div>
                 
@@ -216,24 +216,76 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="發布第一篇文章"><a href="#發布第一篇文章" class="headerlink" title="發布第一篇文章"></a>發布第一篇文章</h1><hr>
-<p>繼上一篇<a href="http://techdiy.tk/2018/04/12/%E5%88%A9%E7%94%A8Hexo%E8%BC%95%E9%AC%86%E5%9C%A8GitHub%E4%B8%8A%E6%89%93%E9%80%A0%E5%80%8B%E4%BA%BA%E9%83%A8%E8%90%BD%E6%A0%BC/">打照個人部落格</a>成功架設了自己的部落格，是該來發布第一篇文章，打開本地端資料夾，依照路徑新增一個檔案，檔名為<code>.md</code></p>
-<blockquote>
-<p>資料夾 → source→ _posts→ 新增檔案.md </p>
+                <h1 id="Smart-Home"><a href="#Smart-Home" class="headerlink" title="Smart Home"></a>Smart Home</h1><hr>
+<p>&ensp;&ensp;&ensp;&ensp;先前介紹過用 Dialogflow 為自己打造語音助手，不曉得是否有人發現，其實旁邊還有一個選項 <a href="https://developers.google.com/actions/smarthome/" target="_blank" rel="noopener">Smart Home</a>。Smart Home 是 Google 近期推出的項目，有效地將不同廠牌智慧家電做結合，並依賴於家的隔間，例如：廚房的燈、臥室的電視、工作室的冷氣…等，我們可以看一下 Google 提供的影片，體會一下什麼是 Smart Home。</p>
+<iframe width="420" height="315" src="https://www.youtube.com/embed/XdZXpFBvTP8" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
+
+<p>&ensp;&ensp;&ensp;&ensp;Smart Home 有別於 Dialogflow ，無需進到 App 即可控制設備，直接由 Google Assistant 小姐幫你服務，省去掉了 Talk to my application 流程，能夠更快速的達到控制效果。Smart Home 主要是偏向已經有自有雲，只需提供 fulfillment URL 給  Google 就能完成 Actions 設定， Google 會視情況而下三種 JSON 類型，分別為 SYNC、EXECUTE、QUERY，其相關的動作或回應，都該由自有雲這邊處理，所以也才會在設定上那麼容易，那 SYNC、EXECUTE、QUERY 在做什麼呢?我們繼續看下去。</p>
+<h1 id="同步裝置"><a href="#同步裝置" class="headerlink" title="同步裝置"></a>同步裝置</h1><hr>
+<p>&ensp;&ensp;&ensp;&ensp;同步裝置(Syncing devices) 當使用者打開 Google Assistant 的 Home control 添加設備，需要選擇設備廠商，選擇完畢後會有登入頁面，你必須要有廠商的帳號，Google 才能對雲進行身份驗證，確認身份後，Assistant  會收到 OAuth token。在這同時，Assistant 會發出 <code>action.devices.SYNC</code>到雲端自動同步裝置，同步完畢後設定好在家中哪個格局後，即可用 Assistant 做控制。<br><img src="SYNC.png" alt="SYNC"><br>詳細內容可以參考 Google 提供的流程<br><img src="https://developers.google.com/actions/images/smarthome001.png" alt=""> </p>
+<p>當然雲也可以要求Google Assistant再次同步裝置狀態，只需要發出<code>action.intent.REQUEST_SYNC</code> ，Google Assistant 就會再一次的做同步，以下是 Google 提供流程。<br><img src="https://developers.google.com/actions/images/smarthome002.png" alt=""> </p>
+<h1 id="執行動作"><a href="#執行動作" class="headerlink" title="執行動作"></a>執行動作</h1><hr>
+<p>&ensp;&ensp;&ensp;&ensp;執行動作(Executing commands)。當使用者向 App 或 Google Home 要求狀態切換時，會先經過一串的語言辨識，若是辨識成功 Assistant 會發出<code>action.devices.EXECUTE</code><br>到雲端，雲需要回覆 Google 並且執行動作，而 Google 收到雲回覆後，會將結果回饋給使用者並更新 HomeGraph。</p>
+<p>流程圖如下<br><img src="https://developers.google.com/actions/images/smarthome003.png" alt=""> </p>
+<h1 id="詢問裝置狀態"><a href="#詢問裝置狀態" class="headerlink" title="詢問裝置狀態"></a>詢問裝置狀態</h1><hr>
+<p>&ensp;&ensp;&ensp;&ensp;詢問裝置狀態(Querying device status)。使用者可以對 Assistant 詢問目前裝置的狀態，例如：What lights are on in the kitchen? Assistant 會發出 <code>action.devices.QUERY</code> 到雲，雲必須回覆裝置狀態，最後回到 HomeGraph，以下流程圖<br><img src="https://developers.google.com/actions/images/smarthome004.png" alt=""> </p>
+<h1 id="Smart-Home-sample"><a href="#Smart-Home-sample" class="headerlink" title="Smart Home sample"></a>Smart Home sample</h1><hr>
+<p>&ensp;&ensp;&ensp;&ensp;Google 提供了整個 Smart Home 應用範例<a href="https://github.com/actions-on-google/smart-home-nodejs" target="_blank" rel="noopener">smart-home-nodejs</a>，依賴 Node.js，所以電腦裡面必須先安裝 <a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a>，那我們開始吧！</p>
+<ol>
+<li>必須在 <a href="https://console.actions.google.com/" target="_blank" rel="noopener">Actions Console</a> 先擁有專案</li>
+<li>開啟 <a href="https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview" target="_blank" rel="noopener">HomeGraph API</a>，這將用於請求同步並將狀態報告回HomeGraph。</li>
+<li>在 <a href="https://console.developers.google.com/apis" target="_blank" rel="noopener">Google Cloud Console API Manager</a>左側選單點擊『憑證』</li>
+<li>選擇建立憑證</li>
+<li>點擊 API 金鑰<br><img src="Createcredentials.png" alt="Createcredentials"> </li>
+<li>複製金鑰貼在 smart-home-provider/cloud/config-provider.js 檔案裡的 Config.smartHomeProviderApiKey</li>
+<li><p>打開終端機輸入各別輸入以下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> smart-home-provider/frontend</span><br><span class="line">npm install -g bower</span><br><span class="line">bower install</span><br><span class="line"><span class="built_in">cd</span> ..</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安裝並執行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在終端機輸出找到client ID 及 client Secret，並記錄起來等等會用到</p>
+</li>
+<li>複製終端機出現的網址，打開網頁並前往<br><img src="URL.png" alt="URL"> </li>
+<li>登入帳號，預設為下<blockquote>
+<p>user: rick<br>password: oldman</p>
 </blockquote>
-<p>檔頭格式依照所下載的主題提供的方法做編寫，例如我的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">title: <span class="string">"發布文章及Theme修改"</span></span><br><span class="line">catalog: <span class="literal">true</span></span><br><span class="line">date: 2018-04-17 13:10:24</span><br><span class="line">subtitle: <span class="string">"快速、簡單且強大的網誌框架."</span></span><br><span class="line">header-img:  <span class="string">"header.png"</span></span><br><span class="line">tags:</span><br><span class="line">- Hexo</span><br><span class="line">- GitHub</span><br><span class="line">catagories:</span><br><span class="line">- 教學</span><br></pre></td></tr></table></figure></p>
-<p>至於文章內容的話，在作者在Git上應該也會說明，如果沒有的話，其實也沒關係，因為Hexo 是使用<a href="https://wastemobile.gitbooks.io/gitbook-chinese/content/format/markdown.html" target="_blank" rel="noopener">Markdown 標記語法</a>，只要遵循語法寫就好了。</p>
-<p>寫完文章後先在本地端測試<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">hexo</span> <span class="string">g</span>              <span class="string">//生成靜態文件</span></span><br><span class="line"><span class="string">hexo</span> <span class="string">s</span> <span class="bullet">-p</span> <span class="number">8080</span>     <span class="string">//開啟8080</span> <span class="string">port</span></span><br></pre></td></tr></table></figure></p>
-<p>確定沒問題後，再將靜態文件發布在GitHub，別忘了將原始文件檔也上傳到GitHub的分支上，避免換環境之後，想修改內容卻沒檔案。<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">hexo</span> <span class="bullet">-d</span>               <span class="string">//上傳靜態文件於GitHub</span></span><br><span class="line"><span class="string">git</span> <span class="string">add.</span>              <span class="string">//添加文檔夾下的所有文檔</span></span><br><span class="line"><span class="string">git</span> <span class="string">commit</span> <span class="bullet">-m</span> <span class="string">"New"</span>   <span class="string">//引號內為此次提交説明</span></span><br><span class="line"><span class="string">git</span> <span class="string">push</span> <span class="bullet">-u</span> <span class="string">origin</span> <span class="string">hexo</span> <span class="string">//</span> <span class="string">推送到Github，hexo為我所建的分支</span></span><br></pre></td></tr></table></figure></p>
-<p>完成！打開網頁去看看自己發的第一篇文章吧！</p>
-<h1 id="修改Theme"><a href="#修改Theme" class="headerlink" title="修改Theme"></a>修改Theme</h1><hr>
-<p>這部需要有點基礎，不過透過了解Hexo的基礎結構後，會比較好下手修改。<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">|-- _config.yml</span></span><br><span class="line"><span class="string">|-- public</span></span><br><span class="line"><span class="string">|-- source</span></span><br><span class="line">   <span class="string">|-- _posts</span></span><br><span class="line"><span class="string">|-- themes</span></span><br><span class="line">   <span class="string">|-- layout</span></span><br><span class="line">   <span class="string">|-- source</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h2><p>很重要的一個檔案，這是配置整個部落格資訊的檔案，例如部落格名稱、作者、主題…等。</p>
-<h2 id="public"><a href="#public" class="headerlink" title="public"></a>public</h2><p>生成的靜態網頁存放地方，不會對這個地方做修改，大略知道就好了。</p>
-<h2 id="source"><a href="#source" class="headerlink" title="source"></a>source</h2><p>這目錄很重要，發布的文章需要放在 _posts目錄下，如果看不懂Code，只要知道在_posts底下新增<code>.md</code>就可以發文了。其他可能還會有一些像選單的資料夾，只要找到相對應的名稱，就可以做資訊上的修改。</p>
-<h2 id="themes"><a href="#themes" class="headerlink" title="themes"></a>themes</h2><p>主題資料夾，存放載下來的主題，並透過修改_config.yml裡的theme<a href="http://techdiy.tk/2018/04/12/%E5%88%A9%E7%94%A8Hexo%E8%BC%95%E9%AC%86%E5%9C%A8GitHub%E4%B8%8A%E6%89%93%E9%80%A0%E5%80%8B%E4%BA%BA%E9%83%A8%E8%90%BD%E6%A0%BC/#%E6%9B%B4%E6%8F%9BTheme">更換主題</a>。</p>
-<h3 id="layout"><a href="#layout" class="headerlink" title="layout"></a>layout</h3><p>佈局資料夾。用於放置主題的模板檔案，決定了網站內容的呈現方式。<br>如果要修改Theme的模板就要在此資料夾下手。</p>
-<h3 id="source-1"><a href="#source-1" class="headerlink" title="source"></a>source</h3><p>原始檔案資料夾，此資料夾是儲放模板以外的檔案，例如CSS、JavaScript檔案等，經過編譯後會自動存放在public資料夾</p>
+</li>
+<li>點擊右上＋，隨意新增裝置，注意請勿把雲符號關閉，且勿重新整理網頁，<br>否則裝置會不見，因為這只個範例 </li>
+</ol>
+<h1 id="Actions-on-Google-console"><a href="#Actions-on-Google-console" class="headerlink" title="Actions on Google console"></a>Actions on Google console</h1><hr>
+<ol>
+<li>回到Actions Console 專案，選擇 Actions Edit，點擊 BUILD<br><img src="https://developers.google.com/actions/images/smarthome-card.png" alt=""></li>
+<li>填入 fulfillment URL，此網址為上一步，第10點的網址加上 smarthome<blockquote>
+<p><a href="https://f2d26ac1.ngrok.io/smarthome" target="_blank" rel="noopener">https://f2d26ac1.ngrok.io/smarthome</a></p>
+</blockquote>
+</li>
+<li>回到 Overview 填寫 App information (這步驟之前有寫過了)</li>
+<li>點擊 Account linking 下的 Add</li>
+<li>Grant Type 選擇 Authorization Code</li>
+<li>填入 Client ID 及 Client secret (之前說要記錄起來的)</li>
+<li>Authorization URL 填入網址+/oauth，即 <a href="https://f2d26ac1.ngrok.io/oauth" target="_blank" rel="noopener">https://f2d26ac1.ngrok.io/oauth</a></li>
+<li>Token URL 同理，即 <a href="https://f2d26ac1.ngrok.io/token" target="_blank" rel="noopener">https://f2d26ac1.ngrok.io/token</a></li>
+<li>填入其他必要資訊</li>
+<li>點擊 <strong>TEST DRAFT</strong> 開始測試 (記得如果改過像URL之類的，都要再點一次 TEST DRAFT)</li>
+</ol>
+<h1 id="測試"><a href="#測試" class="headerlink" title="測試"></a>測試</h1><hr>
+<p>以下的步驟就是實現<a href="#同步裝置">同步</a></p>
+<ol>
+<li>打開手機 Google Assistant App </li>
+<li>點擊右上方圖示</li>
+<li>選擇右上更多圖示</li>
+<li>選擇 Settings</li>
+<li>找到 Home control</li>
+<li>點擊右下 +</li>
+<li>選擇第一個[test]專案名稱</li>
+<li>登入 <a href="#Smart-Home-sample">Smart Home sample</a> 的第11步帳號密碼 (這步不要點太快，否則會看到終端機帳號密碼是空的，必須等頁面完全出來再點</li>
+<li>設定房間</li>
+<li>點擊右上 Done (Assistant 會跟你說可以試試看哪些命令)</li>
+<li>試試 turn my lights on …等命令吧 ！</li>
+</ol>
+<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><hr>
+<p>&ensp;&ensp;&ensp;&ensp;此篇介紹了什麼是 Smart Home，並知道 SYNC、EXECUTE、QUERY 分別在做什麼，且提供了 Smart Home 範例應用，是不是對 Smart Home 有了更進一步的熟悉呢？<br>如果在實作有遇到任何問題，歡迎問我喔</p>
 
                 
 
@@ -242,12 +294,12 @@
                 <ul class="pager">
                     
                         <li class="next">
-                            <a href="/2018/04/21/應用 Google Assistant 打造智慧家居/" data-toggle="tooltip" data-placement="top" title="應用 Google Assistant 打造智慧家居">Next&rarr;</a>
+                            <a href="/2018/05/22/HomeKit 控制樹莓派 GPIO/" data-toggle="tooltip" data-placement="top" title="HomeKit 控制樹莓派 GPIO">Next&rarr;</a>
                         </li>
                     
                     
                         <li class="previous">
-                            <a href="/2018/04/12/利用Hexo輕鬆在GitHub上打造個人部落格/" data-toggle="tooltip" data-placement="top" title="利用Hexo輕鬆在GitHub上打造個人部落格">&larr; Previous</a>
+                            <a href="/2018/05/05/樹莓派變身Google Home/" data-toggle="tooltip" data-placement="top" title="樹莓派變身Google Home">&larr; Previous</a>
                         </li>
                     
                 </ul>
@@ -277,7 +329,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#發布第一篇文章"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">發布第一篇文章</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#修改Theme"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">修改Theme</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#config-yml"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">_config.yml</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#public"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">public</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#source"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">source</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#themes"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">themes</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#layout"><span class="toc-nav-number">2.4.1.</span> <span class="toc-nav-text">layout</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#source-1"><span class="toc-nav-number">2.4.2.</span> <span class="toc-nav-text">source</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Smart-Home"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Smart Home</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#同步裝置"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">同步裝置</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#執行動作"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">執行動作</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#詢問裝置狀態"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">詢問裝置狀態</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Smart-Home-sample"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">Smart Home sample</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Actions-on-Google-console"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">Actions on Google console</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#測試"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">測試</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#總結"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">總結</span></a></li></ol>
         
         </div>
       </aside>
@@ -294,8 +346,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "chouhou";
-    var disqus_identifier = "http://techdiy.tk/2018/04/17/發布文章及Theme修改/";
-    var disqus_url = "http://techdiy.tk/2018/04/17/發布文章及Theme修改/";
+    var disqus_identifier = "http://techdiy.tk/2018/05/08/Google Assistant Smart Home 簡介/";
+    var disqus_url = "http://techdiy.tk/2018/05/08/Google Assistant Smart Home 簡介/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

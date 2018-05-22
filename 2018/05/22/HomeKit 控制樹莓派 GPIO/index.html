@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          GitHub Page 發布文章及Theme修改 - TechDIY | 動手玩科技
+          HomeKit 控制樹莓派 GPIO - TechDIY | 動手玩科技
         
     </title>
 
-    <link rel="canonical" href="http://techdiy.tk/2018/04/17/發布文章及Theme修改/">
+    <link rel="canonical" href="http://techdiy.tk/2018/05/22/HomeKit 控制樹莓派 GPIO/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -70,8 +70,8 @@
     header.intro-header{
         
             
-                background-image: url('header.png')
-             
+                background-image: url('/img/header_img/post_header.png')
+              
             /*post*/
         
     }
@@ -88,18 +88,20 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
+                              <a class="tag" href="/tags/#Raspberry Pi" title="Raspberry Pi">Raspberry Pi</a>
                             
-                              <a class="tag" href="/tags/#GitHub" title="GitHub">GitHub</a>
+                              <a class="tag" href="/tags/#Smart Home" title="Smart Home">Smart Home</a>
                             
-                              <a class="tag" href="/tags/#GitHub Page" title="GitHub Page">GitHub Page</a>
+                              <a class="tag" href="/tags/#HomeKit" title="HomeKit">HomeKit</a>
+                            
+                              <a class="tag" href="/tags/#Homebridge" title="Homebridge">Homebridge</a>
                             
                         </div>
-                        <h1>GitHub Page 發布文章及Theme修改</h1>
-                        <h2 class="subheading">快速、簡單且強大的網誌框架.</h2>
+                        <h1>HomeKit 控制樹莓派 GPIO</h1>
+                        <h2 class="subheading">玩轉語音控制，智慧您的家園.</h2>
                         <span class="meta">
                             Posted by Aaron Chou on
-                            2018-04-17
+                            2018-05-22
                         </span>
                     </div>
                 
@@ -216,24 +218,50 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="發布第一篇文章"><a href="#發布第一篇文章" class="headerlink" title="發布第一篇文章"></a>發布第一篇文章</h1><hr>
-<p>繼上一篇<a href="http://techdiy.tk/2018/04/12/%E5%88%A9%E7%94%A8Hexo%E8%BC%95%E9%AC%86%E5%9C%A8GitHub%E4%B8%8A%E6%89%93%E9%80%A0%E5%80%8B%E4%BA%BA%E9%83%A8%E8%90%BD%E6%A0%BC/">打照個人部落格</a>成功架設了自己的部落格，是該來發布第一篇文章，打開本地端資料夾，依照路徑新增一個檔案，檔名為<code>.md</code></p>
-<blockquote>
-<p>資料夾 → source→ _posts→ 新增檔案.md </p>
-</blockquote>
-<p>檔頭格式依照所下載的主題提供的方法做編寫，例如我的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">title: <span class="string">"發布文章及Theme修改"</span></span><br><span class="line">catalog: <span class="literal">true</span></span><br><span class="line">date: 2018-04-17 13:10:24</span><br><span class="line">subtitle: <span class="string">"快速、簡單且強大的網誌框架."</span></span><br><span class="line">header-img:  <span class="string">"header.png"</span></span><br><span class="line">tags:</span><br><span class="line">- Hexo</span><br><span class="line">- GitHub</span><br><span class="line">catagories:</span><br><span class="line">- 教學</span><br></pre></td></tr></table></figure></p>
-<p>至於文章內容的話，在作者在Git上應該也會說明，如果沒有的話，其實也沒關係，因為Hexo 是使用<a href="https://wastemobile.gitbooks.io/gitbook-chinese/content/format/markdown.html" target="_blank" rel="noopener">Markdown 標記語法</a>，只要遵循語法寫就好了。</p>
-<p>寫完文章後先在本地端測試<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">hexo</span> <span class="string">g</span>              <span class="string">//生成靜態文件</span></span><br><span class="line"><span class="string">hexo</span> <span class="string">s</span> <span class="bullet">-p</span> <span class="number">8080</span>     <span class="string">//開啟8080</span> <span class="string">port</span></span><br></pre></td></tr></table></figure></p>
-<p>確定沒問題後，再將靜態文件發布在GitHub，別忘了將原始文件檔也上傳到GitHub的分支上，避免換環境之後，想修改內容卻沒檔案。<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">hexo</span> <span class="bullet">-d</span>               <span class="string">//上傳靜態文件於GitHub</span></span><br><span class="line"><span class="string">git</span> <span class="string">add.</span>              <span class="string">//添加文檔夾下的所有文檔</span></span><br><span class="line"><span class="string">git</span> <span class="string">commit</span> <span class="bullet">-m</span> <span class="string">"New"</span>   <span class="string">//引號內為此次提交説明</span></span><br><span class="line"><span class="string">git</span> <span class="string">push</span> <span class="bullet">-u</span> <span class="string">origin</span> <span class="string">hexo</span> <span class="string">//</span> <span class="string">推送到Github，hexo為我所建的分支</span></span><br></pre></td></tr></table></figure></p>
-<p>完成！打開網頁去看看自己發的第一篇文章吧！</p>
-<h1 id="修改Theme"><a href="#修改Theme" class="headerlink" title="修改Theme"></a>修改Theme</h1><hr>
-<p>這部需要有點基礎，不過透過了解Hexo的基礎結構後，會比較好下手修改。<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">|-- _config.yml</span></span><br><span class="line"><span class="string">|-- public</span></span><br><span class="line"><span class="string">|-- source</span></span><br><span class="line">   <span class="string">|-- _posts</span></span><br><span class="line"><span class="string">|-- themes</span></span><br><span class="line">   <span class="string">|-- layout</span></span><br><span class="line">   <span class="string">|-- source</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h2><p>很重要的一個檔案，這是配置整個部落格資訊的檔案，例如部落格名稱、作者、主題…等。</p>
-<h2 id="public"><a href="#public" class="headerlink" title="public"></a>public</h2><p>生成的靜態網頁存放地方，不會對這個地方做修改，大略知道就好了。</p>
-<h2 id="source"><a href="#source" class="headerlink" title="source"></a>source</h2><p>這目錄很重要，發布的文章需要放在 _posts目錄下，如果看不懂Code，只要知道在_posts底下新增<code>.md</code>就可以發文了。其他可能還會有一些像選單的資料夾，只要找到相對應的名稱，就可以做資訊上的修改。</p>
-<h2 id="themes"><a href="#themes" class="headerlink" title="themes"></a>themes</h2><p>主題資料夾，存放載下來的主題，並透過修改_config.yml裡的theme<a href="http://techdiy.tk/2018/04/12/%E5%88%A9%E7%94%A8Hexo%E8%BC%95%E9%AC%86%E5%9C%A8GitHub%E4%B8%8A%E6%89%93%E9%80%A0%E5%80%8B%E4%BA%BA%E9%83%A8%E8%90%BD%E6%A0%BC/#%E6%9B%B4%E6%8F%9BTheme">更換主題</a>。</p>
-<h3 id="layout"><a href="#layout" class="headerlink" title="layout"></a>layout</h3><p>佈局資料夾。用於放置主題的模板檔案，決定了網站內容的呈現方式。<br>如果要修改Theme的模板就要在此資料夾下手。</p>
-<h3 id="source-1"><a href="#source-1" class="headerlink" title="source"></a>source</h3><p>原始檔案資料夾，此資料夾是儲放模板以外的檔案，例如CSS、JavaScript檔案等，經過編譯後會自動存放在public資料夾</p>
+                <h1 id="HomeKit"><a href="#HomeKit" class="headerlink" title="HomeKit"></a>HomeKit</h1><hr>
+<p>&ensp;&ensp;&ensp;&ensp;HomeKit 為 Apple 所主導的智慧家庭 App ，可以從 iPhone 或 iWatch 上，要求 Siri 開關家中的智慧家電，甚或是現在火紅的智慧喇叭 HomePod ，但 Apple 陣營一直以來都有一種特性：『封閉』，要加入 HomeKit 取得那迷樣的貼紙，你必須要付錢成為 Apple 開發的公司，之後 Apple 會提供刻有公司名稱的文件，並禁止外流，再來就是家電本身需要使用 Apple 指定的晶片及加密方式，並提供樣品寄送到檢測中心做檢測，最終才能取得 MFI認證。</p>
+<p><img src="http://www.hallsteninnovations.com/wp-content/uploads/2015/12/Works-with-Apple-HomeKit-badge-medium.png" alt=""></p>
+<p><img src="https://www.ningselect.com/wp-content/uploads/2016/09/Incipio-%E9%A3%9B%E7%91%9E%E9%81%94_0005-1024x683.jpg" alt=""></p>
+<p>由於蘋果的「囉唆」，雖然開發難度變高，但相對於使用者卻是及好上手，我很喜歡廠商站在消費者立場想，而不是一昧的追求低成本高效益的模式，掃一下條碼及配對完成（什麼這麼簡單！），相較於其他廠商，這配對堪稱完美。 但也因蘋果的囉唆，使用者必需要更有信仰，HomeKit 需透過 Apple TV 或 iPad 遠端取用你所有的家庭智慧配件，像是關上車庫門、查看出入口攝影機的即時畫面。<br><img src="https://images.apple.com/tw/ios/home/images/overview/home_autopilot_medium.jpg" alt=""></p>
+<p>這也就是這篇誕生的原因，印象中的 HomeKit 就是很封閉，偶然發現有 <a href="https://github.com/nfarina/homebridge" target="_blank" rel="noopener">Homebridge</a> 這東西，來達到用 HomeKit 做語音控制，而且還可以加入其他家智慧家電產品，像小米之類的，真是令人太興奮了，我們來看一下怎麼做吧！</p>
+<h1 id="Homebridge"><a href="#Homebridge" class="headerlink" title="Homebridge"></a>Homebridge</h1><hr>
+<p>&ensp;&ensp;&ensp;&ensp;Homebridge 是個輕量級的 NodeJS 伺服器，可以用以模擬 HomeKit 的 API，且支援其他插件，你可以挑選一個喜歡的工具並修改 JSON 檔，就可完成想要的服務，而且重點『好上手』</p>
+<p>在開始之前你必須準備：</p>
+<ol>
+<li>樹莓派</li>
+<li>繼電器模組</li>
+</ol>
+<h1 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h1><hr>
+<p>樹莓派的作業系統安裝這裡就跳過了，直接從 Node 開始，在安裝 Node 之前可以用 ssh 指令連到樹莓派 <code>ssh pi@192.168.xx.xxx</code>， 密碼預設為 raspberry</p>
+<h2 id="NodeJS"><a href="#NodeJS" class="headerlink" title="NodeJS"></a>NodeJS</h2><ol>
+<li>首先在終端機輸入 <code>node -v</code> ，應該版本為 4.x.x</li>
+<li>輸入 <code>wget https://nodejs.org/dist/v8.9.4/node-v8.9.4-linux-armv6l.tar.xz</code> 可以選擇你要的版本</li>
+<li>解壓縮 <code>tar -xvf node-v8.9.4-linux-armv6l.tar.xz</code></li>
+<li><code>cd node-v8.9.4-linux-armv6l/</code></li>
+<li>輸入 <code>whereis node</code> ，應該會輸出 <code>/usr/bin/node  /usr/local/bin/node  /usr/share/man/man1/node.1.gz</code> ，注意第一個結果</li>
+<li>如果是<code>/usr/bin/node</code> 輸入 <code>sudo cp -R * /usr/</code> ，如果是 <code>/usr/local/bin/node</code> 則輸入 <code>cp -R * /usr/local/</code></li>
+<li>輸入 <code>node -v</code> ，應該會為 v8.9.4</li>
+</ol>
+<h2 id="Homebridge-1"><a href="#Homebridge-1" class="headerlink" title="Homebridge"></a>Homebridge</h2><p>GPIO 控制我選用 <a href="https://github.com/rsg98/homebridge-gpio-wpi2" target="_blank" rel="noopener">homebridge-gpio-wpi2</a> 工具，直接來開始吧</p>
+<ol>
+<li>安裝 <code>sudo apt-get install libavahi-compat-libdnssd-dev</code></li>
+<li>安裝 Homebridge <code>sudo npm install -g --unsafe-perm homebridge</code></li>
+<li>安裝 wiringpi <code>sudo apt-get install wiringpi</code></li>
+<li>安裝 GPIO <code>sudo npm install homebridge-gpio-wpi2</code></li>
+<li>設定好次要群組 <code>sudo usermod -G gpio homebridge</code></li>
+</ol>
+<p>安裝完 Homebridge 之後 需要來新增及修改一些檔案</p>
+<ol>
+<li><code>ip address show eth0 | grep link/ether | cut -c16-32 | tr a-z A-Z</code> ， 複製 MAC 碼</li>
+<li><p>修改檔案<code>sudo nano ~/.homebridge/config.json</code> ， 填入 MAC 、port 及 pin 碼，並指定 GPIO 腳位。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"bridge"</span>: &#123;</span><br><span class="line">        <span class="attr">"name"</span>: <span class="string">"Homebridge"</span>,</span><br><span class="line">        <span class="attr">"username"</span>: <span class="string">"B8:27:EB:0F:45:9F"</span>,</span><br><span class="line">        <span class="attr">"port"</span>: <span class="number">51826</span>,</span><br><span class="line">        <span class="attr">"pin"</span>: <span class="string">"123-45-678"</span></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="attr">"description"</span>: <span class="string">"This is an example configuration file with one fake accesso$</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    "</span>platforms<span class="string">": [</span></span><br><span class="line"><span class="string">        &#123;</span></span><br><span class="line"><span class="string">                    &#123;</span></span><br><span class="line"><span class="string">            "</span>platform<span class="string">" : "</span>WiringPiPlatform<span class="string">",</span></span><br><span class="line"><span class="string">            "</span>name<span class="string">" : "</span>Pi GPIO (WiringPi)<span class="string">",</span></span><br><span class="line"><span class="string">            "</span>overrideCache<span class="string">" : "</span><span class="literal">true</span><span class="string">",</span></span><br><span class="line"><span class="string">            "</span>autoExport<span class="string">" : "</span><span class="literal">true</span><span class="string">",</span></span><br><span class="line"><span class="string">            "</span>gpiopins<span class="string">" : [&#123;</span></span><br><span class="line"><span class="string">                "</span>type<span class="string">":"</span>Switch<span class="string">",</span></span><br><span class="line"><span class="string">                "</span>name<span class="string">" : "</span>GPIO0<span class="number">.1</span><span class="string">",</span></span><br><span class="line"><span class="string">                "</span>pin<span class="string">"  : 18,</span></span><br><span class="line"><span class="string">                "</span>enabled<span class="string">" : "</span><span class="literal">true</span><span class="string">",</span></span><br><span class="line"><span class="string">                "</span>mode<span class="string">" : "</span>out<span class="string">",</span></span><br><span class="line"><span class="string">                "</span>pull<span class="string">" : "</span>down<span class="string">",</span></span><br><span class="line"><span class="string">                "</span>inverted<span class="string">" : "</span><span class="literal">true</span><span class="string">",</span></span><br><span class="line"><span class="string">                "</span>duration<span class="string">" : 0,</span></span><br><span class="line"><span class="string">                "</span>polling<span class="string">" : "</span><span class="literal">true</span><span class="string">"</span></span><br><span class="line"><span class="string">                &#125;]</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">    ]</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Control + X ，點擊 y 和 enter 作儲存</p>
+</li>
+<li><code>homebridge</code> 即可運行及配對囉</li>
+</ol>
+<h2 id="配對"><a href="#配對" class="headerlink" title="配對"></a>配對</h2><p>上一步輸入完畢後會看到類似的文字<br><img src="https://blog.encoredevlabs.com/assets/article_images/2017-12-25/qr-code.png" alt=""></p>
+<p>打開 iPhone 的 Wi-Fi 連同一個分享器，開啟 HomeKit(臺灣應該是『家庭』)，用相機掃描 QRcode 即可配對完成</p>
 
                 
 
@@ -241,13 +269,9 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="next">
-                            <a href="/2018/04/21/應用 Google Assistant 打造智慧家居/" data-toggle="tooltip" data-placement="top" title="應用 Google Assistant 打造智慧家居">Next&rarr;</a>
-                        </li>
-                    
                     
                         <li class="previous">
-                            <a href="/2018/04/12/利用Hexo輕鬆在GitHub上打造個人部落格/" data-toggle="tooltip" data-placement="top" title="利用Hexo輕鬆在GitHub上打造個人部落格">&larr; Previous</a>
+                            <a href="/2018/05/08/Google Assistant Smart Home 簡介/" data-toggle="tooltip" data-placement="top" title="Google Assistant Smart Home 簡介">&larr; Previous</a>
                         </li>
                     
                 </ul>
@@ -277,7 +301,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#發布第一篇文章"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">發布第一篇文章</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#修改Theme"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">修改Theme</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#config-yml"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">_config.yml</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#public"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">public</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#source"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">source</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#themes"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">themes</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#layout"><span class="toc-nav-number">2.4.1.</span> <span class="toc-nav-text">layout</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#source-1"><span class="toc-nav-number">2.4.2.</span> <span class="toc-nav-text">source</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#HomeKit"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">HomeKit</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Homebridge"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Homebridge</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#安裝"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">安裝</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#NodeJS"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">NodeJS</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Homebridge-1"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">Homebridge</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#配對"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">配對</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -294,8 +318,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "chouhou";
-    var disqus_identifier = "http://techdiy.tk/2018/04/17/發布文章及Theme修改/";
-    var disqus_url = "http://techdiy.tk/2018/04/17/發布文章及Theme修改/";
+    var disqus_identifier = "http://techdiy.tk/2018/05/22/HomeKit 控制樹莓派 GPIO/";
+    var disqus_url = "http://techdiy.tk/2018/05/22/HomeKit 控制樹莓派 GPIO/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
