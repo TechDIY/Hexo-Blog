@@ -84,7 +84,6 @@ password: oldman
 # Actions on Google console
 ---
 1. 回到Actions Console 專案，選擇 Actions Edit，點擊 BUILD
-![](https://developers.google.com/actions/images/smarthome-card.png)
 2. 填入 fulfillment URL，此網址為上一步，第10點的網址加上 smarthome
 >https://f2d26ac1.ngrok.io/smarthome
 3. 回到 Overview 填寫 App information (這步驟之前有寫過了)
