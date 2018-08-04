@@ -1223,7 +1223,7 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover {
 }
 
 .custom-page-content .page-header.color-1 {
-  background-color: #2196F3;
+  background-color: #8d9092;
   background-image: url(../img/sp_main_bg.png);
   background-size: cover;
   -webkit-background-size: cover;
@@ -1253,7 +1253,7 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover {
 ======================================= */
 .start-page-content .page-header {
   position: relative;
-  background-color: #2196F3;
+  background-color: #8d9092;
   padding: 50px;
   margin-bottom: 25px;
   background-image: url(../img/sp_main_bg.png);
